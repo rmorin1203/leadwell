@@ -1,0 +1,531 @@
+{
+  "id": "declining-performance",
+  "title": "Addressing Declining Employee Performance",
+  "shortTitle": "Declining Performance",
+  "summary": "A consistently strong analyst has missed three deadlines and gone quiet in meetings. Open a conversation that uncovers what is really happening while keeping expectations clear.",
+  "difficulty": "beginner",
+  "estimatedMinutes": 12,
+  "competencies": ["activeListening", "empathy", "emotionalIntelligence", "accountability", "coaching", "clarity"],
+  "objectives": [
+    { "id": "dp1", "text": "Open a performance conversation with an observation and an invitation rather than a judgment.", "competency": "emotionalIntelligence" },
+    { "id": "dp2", "text": "Use open questions and silence to surface the root cause of a performance change.", "competency": "activeListening" },
+    { "id": "dp3", "text": "Balance empathy for personal circumstances with clear, specific performance expectations.", "competency": "accountability" },
+    { "id": "dp4", "text": "Co-create a support plan with a concrete follow-up commitment.", "competency": "coaching" }
+  ],
+  "status": "available",
+  "personaIds": ["maya"],
+  "tags": ["performance", "1:1", "well-being", "expectations"],
+  "context": {
+    "setting": "A scheduled 30-minute 1:1 in a small meeting room. It is Tuesday morning; the quarterly business review is in three weeks.",
+    "situation": "Maya Chen has been one of the most reliable analysts on your team for four years. Over the last six weeks she has missed three deadlines, her Q3 revenue report went out with two calculation errors that a director caught, and she has barely spoken in team meetings.",
+    "background": [
+      "Maya was rated \"exceeds expectations\" in each of her last three reviews.",
+      "She has not requested time off or raised any concerns with you.",
+      "Two teammates have quietly picked up some of her follow-up work.",
+      "She has been logging in late and leaving early on several days."
+    ],
+    "managerObjective": "Understand what is driving the change, re-establish clear expectations for the next three weeks, and agree on a plan and a follow-up date.",
+    "whatYouKnow": [
+      "Missed: vendor analysis (5 days late), dashboard refresh (3 days late), forecast update (2 days late).",
+      "The director who caught the Q3 errors asked you to \"look into it.\"",
+      "You do not know of any personal circumstances."
+    ]
+  },
+  "startNodeId": "open",
+  "keyPrinciples": [
+    "Lead with observation and curiosity before evaluation.",
+    "Silence after an open question is a tool, not a gap to fill.",
+    "Support and accountability are not opposites — the best plans include both.",
+    "End with a specific, mutually agreed next step and follow-up date."
+  ],
+  "nodes": {
+    "open": {
+      "id": "open",
+      "label": "Opening the conversation",
+      "narration": "Maya sits down across from you with her laptop closed. She glances at the meeting invite title — \"Check-in\" — and waits for you to begin.",
+      "prompt": "How do you open the conversation?",
+      "options": [
+        {
+          "id": "open-direct",
+          "text": "\"I've noticed your performance has declined, and we need to discuss what's going on.\"",
+          "approach": "directive",
+          "quality": "partial",
+          "ratings": { "clarity": 3, "emotionalIntelligence": 1, "empathy": 1, "activeListening": 1 },
+          "trust": -1,
+          "reaction": [{ "speakerId": "maya", "cue": "straightens slightly; her voice tightens", "text": "Declined. Okay. I know the Q3 report had issues — I'll fix it. Is this… a formal thing?" }],
+          "feedback": {
+            "didWell": "You were honest and direct. Maya knows exactly why she is here, and you avoided the trap of disguising a serious topic as small talk.",
+            "improve": "\"Performance has declined\" is a conclusion, not an observation. It labels Maya before you understand what is behind the change.",
+            "why": "When people hear an evaluation first, their attention shifts to self-protection. That makes it harder to learn the root cause — which is what you need to fix the problem.",
+            "perception": "Maya likely heard: \"I am in trouble.\" Her question about whether this is formal shows she is now assessing risk, not reflecting.",
+            "alternative": "Name specific, observable facts and pair them with curiosity: \"I've noticed a few deadlines slip recently, which isn't like you. I wanted to check in and understand how things are going.\""
+          },
+          "next": "guarded"
+        },
+        {
+          "id": "open-checkin",
+          "text": "\"I've noticed some changes recently, and I'd like to check in to see how things are going.\"",
+          "approach": "inquiry",
+          "quality": "effective",
+          "ratings": { "clarity": 2, "emotionalIntelligence": 3, "empathy": 3, "activeListening": 3 },
+          "trust": 1,
+          "reaction": [{ "speakerId": "maya", "cue": "pauses, looks down at the table", "text": "…Honestly? It's been a rough couple of months. I didn't think it was that noticeable." }],
+          "feedback": {
+            "didWell": "You signaled concern without judgment and left room for Maya to define the problem in her own words.",
+            "improve": "\"Some changes\" is soft. If Maya had brushed it off, you would need to follow up with the specific deadlines and errors so the message is not lost.",
+            "why": "An invitation framed around care lowers threat and increases the likelihood of honest disclosure — essential when you do not yet know the cause.",
+            "perception": "Maya likely felt noticed rather than evaluated. Her admission that things have been \"rough\" is a sign of early trust.",
+            "alternative": "This was a strong opening. To sharpen it, add one concrete example: \"…like the vendor analysis coming in late, which isn't like you.\""
+          },
+          "next": "opening-up"
+        },
+        {
+          "id": "open-expectations",
+          "text": "\"Your recent work hasn't met expectations. What is happening?\"",
+          "approach": "judgmental",
+          "quality": "limited",
+          "ratings": { "clarity": 2, "emotionalIntelligence": 0, "empathy": 0, "activeListening": 1 },
+          "trust": -2,
+          "reaction": [{ "speakerId": "maya", "cue": "crosses her arms", "text": "Nothing's \"happening.\" I've had a lot on my plate. Everyone's been stretched." }],
+          "feedback": {
+            "didWell": "You asked a question, which shows you want Maya's perspective rather than only delivering a verdict.",
+            "improve": "The verdict comes first and the question that follows sounds like an accusation. \"What is happening?\" can feel like \"What is wrong with you?\"",
+            "why": "Pairing a negative judgment with a \"what is happening\" question triggers defensiveness, especially in high performers who are already self-critical.",
+            "perception": "Maya likely felt cornered. Her generalization — \"everyone's been stretched\" — is a self-protective move to deflect individual blame.",
+            "alternative": "Separate the facts from the judgment and lead with curiosity: \"Three deadlines have slipped in the last six weeks, which is unusual for you. What's been going on?\""
+          },
+          "next": "defensive"
+        }
+      ]
+    },
+    "guarded": {
+      "id": "guarded",
+      "label": "Responding to \"Is this formal?\"",
+      "narration": "Maya is waiting for your answer. Her laptop is still closed, and she has not made eye contact since you began.",
+      "prompt": "Maya asked whether this is a formal conversation. How do you respond?",
+      "options": [
+        {
+          "id": "guarded-reassure",
+          "text": "\"No, it's not formal. I'm raising it because this isn't like you — your work has been consistently strong for years — so I want to understand what's changed.\"",
+          "approach": "empathetic",
+          "quality": "effective",
+          "ratings": { "emotionalIntelligence": 3, "empathy": 3, "clarity": 3, "activeListening": 2 },
+          "trust": 2,
+          "reaction": [{ "speakerId": "maya", "cue": "exhales; her shoulders drop a little", "text": "Okay. Thanks for saying that. It's… not really about work." }],
+          "feedback": {
+            "didWell": "You answered her question honestly, reframed the conversation around her track record, and restated your real intent: to understand.",
+            "improve": "Very little — you might also have acknowledged that your opening came across more sharply than intended.",
+            "why": "Answering the underlying question (\"Am I in trouble?\") reduces threat. Referencing her history signals that you see the change as an exception, not her identity.",
+            "perception": "Maya likely felt the conversation shift from evaluation to concern. \"It's not really about work\" is a door opening.",
+            "alternative": "Adding a brief repair strengthens this further: \"That came out more bluntly than I meant. This isn't formal — I'm concerned because…\""
+          },
+          "next": "disclosure"
+        },
+        {
+          "id": "guarded-threat",
+          "text": "\"Not yet, but it could become one if things don't improve. I need you to understand how serious this is.\"",
+          "approach": "judgmental",
+          "quality": "limited",
+          "ratings": { "emotionalIntelligence": 0, "empathy": 0, "clarity": 2, "accountability": 2, "activeListening": 0 },
+          "trust": -2,
+          "reaction": [{ "speakerId": "maya", "cue": "voice goes flat", "text": "Understood. I'll make sure it doesn't happen again." }],
+          "feedback": {
+            "didWell": "You were transparent about the possible consequences — employees deserve to know if their job is at risk.",
+            "improve": "Introducing consequences before you understand the cause makes the conversation about compliance instead of problem-solving.",
+            "why": "Threat narrows attention and suppresses disclosure. You may get a short-term promise, but you lose the information you need to solve the real problem.",
+            "perception": "Maya likely heard: \"My manager has already decided I'm a problem.\" Her flat promise is self-protection, not commitment.",
+            "alternative": "Hold consequences until you understand the situation: \"It isn't formal. I want to understand what's going on first, and then we can talk about what needs to happen next.\""
+          },
+          "next": "shutdown"
+        },
+        {
+          "id": "guarded-facts",
+          "text": "\"It's not formal. Let's focus on the specifics: the Q3 report had errors, and the vendor analysis and dashboard refresh were late.\"",
+          "approach": "directive",
+          "quality": "partial",
+          "ratings": { "clarity": 3, "accountability": 3, "emotionalIntelligence": 1, "empathy": 1, "activeListening": 1 },
+          "trust": 0,
+          "reaction": [{ "speakerId": "maya", "cue": "nods slowly", "text": "Right. I know. I was behind on all three. I've been dealing with some personal stuff, but it's handled." }],
+          "feedback": {
+            "didWell": "You answered her question and moved to specific, observable facts — far more useful than a general label like \"declined.\"",
+            "improve": "You moved straight to the evidence without inviting her perspective, so the conversation still feels like a review rather than a dialogue.",
+            "why": "Specific facts build clarity, but facts alone rarely reveal causes. Pairing them with a question creates space for the \"why.\"",
+            "perception": "Maya likely felt you were fair but focused on the problem rather than on her. She mentions \"personal stuff\" and then closes it off — a test of whether you will follow up.",
+            "alternative": "Add an invitation after the facts: \"…the dashboard refresh were late. That's not the pattern I'm used to from you. What's been happening?\""
+          },
+          "next": "vague"
+        }
+      ]
+    },
+    "opening-up": {
+      "id": "opening-up",
+      "label": "Following \"It's been rough\"",
+      "narration": "Maya has offered a small opening. She is watching your reaction closely.",
+      "prompt": "Maya said it's been a rough couple of months. What do you do next?",
+      "options": [
+        {
+          "id": "up-listen",
+          "text": "\"Thank you for telling me. What's been making it rough?\" — and then you wait, without filling the silence.",
+          "approach": "inquiry",
+          "quality": "effective",
+          "ratings": { "activeListening": 3, "empathy": 3, "emotionalIntelligence": 3, "coaching": 2 },
+          "trust": 2,
+          "reaction": [{ "speakerId": "maya", "cue": "after a long pause", "text": "My dad had a stroke in August. I've been… dealing with that." }],
+          "feedback": {
+            "didWell": "You acknowledged her honesty, asked a single open question, and then let silence do the work.",
+            "improve": "Nothing significant. Stay alert to what she does not want to share — curiosity should not become probing.",
+            "why": "Silence after an open question communicates patience and gives the other person control over what they disclose. It often surfaces the most important information.",
+            "perception": "Maya likely felt it was safe to say the hard thing. Being thanked for her honesty reduced her fear of being judged.",
+            "alternative": "This is a model response. Variation: \"That sounds hard. Tell me more, if you're comfortable.\""
+          },
+          "next": "disclosure"
+        },
+        {
+          "id": "up-deadlines",
+          "text": "\"I appreciate you saying that. Whatever it is, we need to get the deadlines back on track — the team relies on your work.\"",
+          "approach": "directive",
+          "quality": "partial",
+          "ratings": { "activeListening": 1, "empathy": 1, "accountability": 3, "emotionalIntelligence": 1, "clarity": 2 },
+          "trust": -1,
+          "reaction": [{ "speakerId": "maya", "cue": "her expression closes", "text": "Of course. I'll get back on top of it. It's just some personal stuff, but it's handled." }],
+          "feedback": {
+            "didWell": "You stated the business need clearly and reminded Maya that her work matters to the team.",
+            "improve": "\"Whatever it is\" closed the door she had just opened. You moved to expectations before you understood the problem.",
+            "why": "Accountability lands best after understanding. When expectations follow an emotional disclosure too quickly, the person learns that sharing was not worth the risk.",
+            "perception": "Maya likely felt that you care more about deadlines than about her. Her \"it's handled\" is a retreat.",
+            "alternative": "Explore first, then set expectations: \"I appreciate you saying that. What's been going on?\" — and only later, \"Let's work out a plan that keeps the key deadlines realistic.\""
+          },
+          "next": "vague"
+        },
+        {
+          "id": "up-rescue",
+          "text": "\"I get it — everyone's been slammed. Want me to move the dashboard project to someone else for now?\"",
+          "approach": "rescuing",
+          "quality": "partial",
+          "ratings": { "activeListening": 1, "empathy": 2, "problemSolving": 1, "coaching": 0, "emotionalIntelligence": 2 },
+          "trust": 0,
+          "reaction": [{ "speakerId": "maya", "cue": "hesitates", "text": "Maybe… I don't know. I don't want to drop things. It's some personal stuff. I'll figure it out." }],
+          "feedback": {
+            "didWell": "Your instinct to reduce her load comes from genuine care, and offering practical help is a useful leadership move.",
+            "improve": "You offered a solution before you knew the problem. \"Everyone's been slammed\" also assumed the cause was workload.",
+            "why": "Premature solutions can feel like a vote of no confidence and skip the diagnosis. Coaching starts with understanding what the person needs.",
+            "perception": "Maya likely felt grateful but uneasy — taking the project away might signal that you doubt her. She is now unsure whether to accept.",
+            "alternative": "Ask before you fix: \"That sounds hard. What's been making it rough?\" Then: \"What would help most right now?\""
+          },
+          "next": "vague"
+        }
+      ]
+    },
+    "defensive": {
+      "id": "defensive",
+      "label": "Responding to defensiveness",
+      "narration": "Maya's arms are crossed, and her answer was clipped. The conversation is at risk of becoming a standoff.",
+      "prompt": "Maya said, \"Everyone's been stretched.\" How do you respond?",
+      "options": [
+        {
+          "id": "def-deescalate",
+          "text": "\"You're right that the team is stretched, and I'm not here to blame you. Your work has been excellent for years, and the last few weeks look different. I'd like to understand why.\"",
+          "approach": "repair",
+          "quality": "effective",
+          "ratings": { "emotionalIntelligence": 3, "empathy": 3, "activeListening": 2, "clarity": 2 },
+          "trust": 1,
+          "reaction": [{ "speakerId": "maya", "cue": "uncrosses her arms", "text": "…It's been a hard stretch outside of work. Some personal stuff. I thought I was keeping it together." }],
+          "feedback": {
+            "didWell": "You validated what was true in her response, removed the threat of blame, and restated your intent — a skillful recovery.",
+            "improve": "Consider explicitly owning that your opening was sharper than you intended; repair is most effective when it is named.",
+            "why": "Acknowledging the valid part of a defensive response de-escalates without abandoning the issue. Referencing her track record reframes the problem as temporary.",
+            "perception": "Maya likely felt you were not trying to trip her up. That is why she offers a little more.",
+            "alternative": "Add explicit ownership: \"I opened that badly. I'm not here to blame you — I'm here because this isn't like you.\""
+          },
+          "next": "vague"
+        },
+        {
+          "id": "def-compare",
+          "text": "\"Everyone is stretched, but they're still hitting their deadlines.\"",
+          "approach": "judgmental",
+          "quality": "limited",
+          "ratings": { "emotionalIntelligence": 0, "empathy": 0, "activeListening": 0, "clarity": 2, "accountability": 1 },
+          "trust": -2,
+          "reaction": [{ "speakerId": "maya", "cue": "looks away, jaw set", "text": "Fine. What do you need from me?" }],
+          "feedback": {
+            "didWell": "You did not let the generalization stand, and you kept the conversation anchored to the deadlines.",
+            "improve": "Comparing Maya with her peers turns a conversation about her situation into a competition she is losing.",
+            "why": "Social comparison is one of the most reliable triggers for defensiveness and shame. It rarely produces insight, only compliance.",
+            "perception": "Maya likely felt judged and singled out. \"What do you need from me?\" signals she has stopped engaging.",
+            "alternative": "Acknowledge and redirect to her: \"The team has been stretched. I'm asking about you specifically because the last few weeks don't look like your usual work.\""
+          },
+          "next": "shutdown"
+        },
+        {
+          "id": "def-facts",
+          "text": "\"Let's look at the facts together. Three deadlines slipped and the Q3 report had errors. Walk me through what happened with each.\"",
+          "approach": "directive",
+          "quality": "partial",
+          "ratings": { "clarity": 3, "accountability": 3, "problemSolving": 2, "emotionalIntelligence": 1, "empathy": 0 },
+          "trust": 0,
+          "reaction": [{ "speakerId": "maya", "cue": "methodically", "text": "The vendor data came in late, the dashboard broke on a schema change, and the forecast… I just ran out of time. I've had some personal things going on, but it's handled." }],
+          "feedback": {
+            "didWell": "You moved from vague generalizations to specific facts and invited her to explain — that is fair and clear.",
+            "improve": "Going item by item keeps the conversation analytical and can miss the common thread behind all three.",
+            "why": "Task-level analysis is useful for fixing processes, but when a strong performer slips across many tasks, the cause is usually not the tasks.",
+            "perception": "Maya likely felt the conversation was fair but clinical. She mentions personal issues and closes them off — checking whether you will notice.",
+            "alternative": "Zoom out: \"Three things slipping at once is unusual for you. Is there something bigger going on?\""
+          },
+          "next": "vague"
+        }
+      ]
+    },
+    "disclosure": {
+      "id": "disclosure",
+      "label": "Responding to a personal disclosure",
+      "narration": "Maya explains that her father had a stroke in August. She has been driving to Sacramento most weekends and taking calls with his care team during work hours. \"I didn't want to make it everyone's problem,\" she says. \"I thought I could keep up.\"",
+      "prompt": "How do you respond — balancing support with what the business needs?",
+      "options": [
+        {
+          "id": "disc-balance",
+          "text": "\"I'm really sorry, Maya. That's a lot to carry. Let's work out together what would make the next couple of months manageable — and then agree on what the team can count on from you.\"",
+          "approach": "collaborative",
+          "quality": "effective",
+          "ratings": { "empathy": 3, "accountability": 3, "coaching": 3, "problemSolving": 3, "clarity": 2 },
+          "trust": 2,
+          "reaction": [{ "speakerId": "maya", "cue": "visibly relieved", "text": "That would really help. Honestly, if I could shift my hours on Mondays and Fridays and push the forecast to the following week, I could hit everything else." }],
+          "feedback": {
+            "didWell": "You led with compassion and then moved to a joint plan that includes clear expectations. That is support and accountability together.",
+            "improve": "Make sure the plan ends with a specific follow-up date, and mention available resources such as the EAP or leave options.",
+            "why": "People commit to plans they help create. Linking support to explicit expectations protects the team and treats Maya as a capable professional.",
+            "perception": "Maya likely felt respected — cared for, but not pitied. Her immediate, concrete proposal shows ownership.",
+            "alternative": "This is a model response. To complete it: \"…and let's check in again next Tuesday to see how it's working.\""
+          },
+          "next": null,
+          "outcome": "breakthrough"
+        },
+        {
+          "id": "disc-noexpect",
+          "text": "\"I'm so sorry. Take whatever time you need, and don't worry about the deadlines for now.\"",
+          "approach": "rescuing",
+          "quality": "partial",
+          "ratings": { "empathy": 3, "accountability": 0, "coaching": 1, "problemSolving": 1, "clarity": 1 },
+          "trust": 1,
+          "reaction": [{ "speakerId": "maya", "cue": "grateful, but uncertain", "text": "Thank you. Really. I… okay. I'll do my best." }],
+          "feedback": {
+            "didWell": "Your compassion is genuine and immediate. Maya will remember that her manager cared.",
+            "improve": "Removing all expectations leaves Maya without clarity and leaves the team absorbing the impact without a plan.",
+            "why": "Ambiguity is stressful, especially for high performers. Without agreed priorities, she will likely keep trying to do everything — or feel guilty about what she drops.",
+            "perception": "Maya likely felt relieved in the moment but unsure what \"don't worry\" really means. Does the QBR still matter? Will someone else be told?",
+            "alternative": "Pair compassion with structure: \"I'm so sorry. Let's agree on what's essential for the next few weeks, what can move, and what support you need.\""
+          },
+          "next": null,
+          "outcome": "productive-soft"
+        },
+        {
+          "id": "disc-hr",
+          "text": "\"I'm sorry to hear that. You should talk to HR about family leave — they handle this kind of thing.\"",
+          "approach": "avoidant",
+          "quality": "limited",
+          "ratings": { "empathy": 1, "accountability": 1, "coaching": 0, "problemSolving": 1, "emotionalIntelligence": 1 },
+          "trust": -1,
+          "reaction": [{ "speakerId": "maya", "cue": "nods, a little deflated", "text": "Right. Sure. I'll reach out to them." }],
+          "feedback": {
+            "didWell": "Pointing Maya to formal leave options is responsible — she may be entitled to protections she does not know about.",
+            "improve": "Referring her to HR without engaging yourself can feel like a hand-off. You are still her manager, and the plan for her work is still yours to shape.",
+            "why": "HR resources complement, but do not replace, the manager's role. Employees disclose to managers because they want a human response first.",
+            "perception": "Maya likely felt she had shared something vulnerable and been redirected to a process. She may not disclose again.",
+            "alternative": "Do both: \"I'm so sorry. Let's talk about what would help with your work — and I also want to make sure you know about the leave and EAP options HR can walk you through.\""
+          },
+          "next": null,
+          "outcome": "partial-handoff"
+        }
+      ]
+    },
+    "vague": {
+      "id": "vague",
+      "label": "Exploring a partial disclosure",
+      "narration": "Maya has mentioned \"personal stuff\" but closed it off quickly. She is engaged but guarded, and she is watching to see whether you will push or let it go.",
+      "prompt": "Maya said it's personal and \"handled.\" What do you do?",
+      "options": [
+        {
+          "id": "vague-respect",
+          "text": "\"I hear that it's personal, and you don't need to share details. What I'd like is for us to find a plan that works. What would help most right now?\"",
+          "approach": "collaborative",
+          "quality": "effective",
+          "ratings": { "empathy": 3, "coaching": 3, "activeListening": 2, "accountability": 2, "problemSolving": 3 },
+          "trust": 2,
+          "reaction": [{ "speakerId": "maya", "cue": "thinks for a moment, then speaks more openly", "text": "…My dad's been ill. If I could shift my hours on a couple of days and push the forecast a week, I think I could get back on track." }],
+          "feedback": {
+            "didWell": "You respected her privacy, which paradoxically made her more willing to share. You moved to a forward-looking, coaching question.",
+            "improve": "Confirm what you will both commit to and set a follow-up date so the plan has accountability built in.",
+            "why": "Respecting boundaries builds psychological safety. \"What would help most?\" gives ownership back to her while signaling support.",
+            "perception": "Maya likely felt trusted rather than probed — and chose to share more on her own terms.",
+            "alternative": "Strong response. Strengthen it with a close: \"Let's write that down and check in next Tuesday.\""
+          },
+          "next": null,
+          "outcome": "productive"
+        },
+        {
+          "id": "vague-accept",
+          "text": "\"Okay. If it's handled, then I'll expect the deadlines to be met going forward. Let's check in next month.\"",
+          "approach": "directive",
+          "quality": "partial",
+          "ratings": { "empathy": 1, "coaching": 0, "activeListening": 0, "accountability": 3, "clarity": 3, "problemSolving": 0 },
+          "trust": -1,
+          "reaction": [{ "speakerId": "maya", "cue": "quietly", "text": "Got it. I'll make it work." }],
+          "feedback": {
+            "didWell": "You set a clear expectation and a follow-up point, both of which are part of accountability.",
+            "improve": "You took \"it's handled\" at face value. The evidence of the last six weeks suggests it is not handled, and a month is a long time before the next check-in.",
+            "why": "Accepting a surface answer avoids discomfort now but leaves the root cause in place. Expectations without support often lead to the same outcome again.",
+            "perception": "Maya likely felt the conversation was about compliance. She will try harder, alone — the pattern that got her here.",
+            "alternative": "Gently test the claim: \"I'm glad it's in hand. Is there anything at work that would make it easier while it settles?\" Then agree on a check-in within a week."
+          },
+          "next": null,
+          "outcome": "partial"
+        },
+        {
+          "id": "vague-push",
+          "text": "\"I think it's important you tell me what's going on so I can help.\"",
+          "approach": "directive",
+          "quality": "partial",
+          "ratings": { "empathy": 2, "coaching": 1, "activeListening": 1, "emotionalIntelligence": 1, "accountability": 1 },
+          "trust": -1,
+          "reaction": [{ "speakerId": "maya", "cue": "uncomfortable", "text": "I'd rather keep it private, if that's okay. I'll get things back on track." }],
+          "feedback": {
+            "didWell": "Your intent to help is clear and sincere.",
+            "improve": "Telling someone they need to disclose personal information crosses a boundary, even with good intentions.",
+            "why": "Employees have a right to privacy. Insisting on details can feel intrusive and reduces trust; you can support someone without knowing the full story.",
+            "perception": "Maya likely felt pressured. She now associates sharing with losing control of her private life.",
+            "alternative": "Offer, don't require: \"You don't have to tell me details. I'd just like to know what would make work more manageable.\""
+          },
+          "next": null,
+          "outcome": "partial"
+        }
+      ]
+    },
+    "shutdown": {
+      "id": "shutdown",
+      "label": "Recovering a shut-down conversation",
+      "narration": "Maya has gone quiet. Her answers are short, and she has opened her laptop as if to signal the meeting is nearly over.",
+      "prompt": "The conversation has stalled. What do you do?",
+      "options": [
+        {
+          "id": "shut-repair",
+          "text": "\"Let me back up. I came in too hard. I'm concerned because this isn't like you, and I'd rather understand than judge. Can we start again?\"",
+          "approach": "repair",
+          "quality": "effective",
+          "ratings": { "emotionalIntelligence": 3, "empathy": 3, "activeListening": 2, "conflictResolution": 3 },
+          "trust": 2,
+          "reaction": [{ "speakerId": "maya", "cue": "closes the laptop", "text": "…Okay. It's my dad. He had a stroke in August. I've been trying to manage it on my own." }],
+          "feedback": {
+            "didWell": "You noticed the conversation was failing, named your part in it, and invited a restart. That takes real self-awareness.",
+            "improve": "Repair works; it would have been even better not to need it. Reflect on what made you lead with pressure.",
+            "why": "A sincere repair resets threat levels and demonstrates the behavior you want from your team: owning mistakes.",
+            "perception": "Maya likely saw you as human and trustworthy — enough to share what is really going on.",
+            "alternative": "This is the right move. Follow it immediately with support and a joint plan."
+          },
+          "next": null,
+          "outcome": "recovered"
+        },
+        {
+          "id": "shut-directive",
+          "text": "\"I need the dashboard by Friday and a corrected Q3 report by Wednesday.\"",
+          "approach": "directive",
+          "quality": "partial",
+          "ratings": { "clarity": 3, "accountability": 3, "emotionalIntelligence": 0, "empathy": 0, "problemSolving": 1 },
+          "trust": 0,
+          "reaction": [{ "speakerId": "maya", "cue": "typing a note", "text": "Friday and Wednesday. Got it." }],
+          "feedback": {
+            "didWell": "Your expectations are specific and time-bound — there is no ambiguity about what is due.",
+            "improve": "You resolved the immediate deliverables but abandoned the root cause. The conversation ends without understanding.",
+            "why": "Clear deadlines fix this week. Understanding fixes the pattern. Without it, you will likely be having this conversation again.",
+            "perception": "Maya likely felt managed rather than supported. She will meet these deadlines, possibly at significant personal cost.",
+            "alternative": "Set the deadlines, then reopen the door: \"Those are the priorities. And I meant it — if something's going on, I'd like to help.\""
+          },
+          "next": null,
+          "outcome": "strained-compliance"
+        },
+        {
+          "id": "shut-vague",
+          "text": "\"I need you to be more engaged. You've been checked out in meetings.\"",
+          "approach": "judgmental",
+          "quality": "limited",
+          "ratings": { "clarity": 1, "accountability": 1, "emotionalIntelligence": 0, "empathy": 0, "activeListening": 0 },
+          "trust": -2,
+          "reaction": [{ "speakerId": "maya", "cue": "tight-lipped", "text": "Okay." }],
+          "feedback": {
+            "didWell": "You named a real behavior you have observed — her silence in meetings.",
+            "improve": "\"Be more engaged\" and \"checked out\" are labels, not observable behaviors. They give Maya nothing specific to act on.",
+            "why": "Vague, character-based feedback cannot be acted on and feels personal. It deepens disengagement rather than reversing it.",
+            "perception": "Maya likely felt misjudged. She is struggling, and she has just been told she does not care.",
+            "alternative": "Describe the behavior and ask: \"I've noticed you've been quieter in team meetings lately. Is something making it harder to contribute?\""
+          },
+          "next": null,
+          "outcome": "strained"
+        }
+      ]
+    }
+  },
+  "outcomes": {
+    "breakthrough": {
+      "id": "breakthrough",
+      "tier": "breakthrough",
+      "title": "A shared plan built on trust",
+      "narrative": "You and Maya agree on adjusted hours for Mondays and Fridays, a one-week extension on the forecast, and a check-in next Tuesday. She leaves with a clear picture of what is essential before the QBR. Over the following weeks, her deliverables return to their usual standard.",
+      "employeePerspective": "\"I was dreading that meeting. Instead, I felt like my manager actually had my back — and I knew exactly what I needed to deliver.\"",
+      "lookingAhead": "Maya is likely to raise problems earlier in the future. Follow through on the check-in to cement the trust you have built."
+    },
+    "productive": {
+      "id": "productive",
+      "tier": "productive",
+      "title": "Progress, on her terms",
+      "narrative": "Maya shares enough for you to agree on a few practical adjustments. The deadlines are clearer, though you have not yet set a follow-up date. Her work improves, but you are still partly in the dark.",
+      "employeePerspective": "\"It felt good that my manager didn't pry. I'm going to try to make the new schedule work.\"",
+      "lookingAhead": "Lock in a follow-up within a week. Plans without check-ins drift, especially when someone is managing pressure outside work."
+    },
+    "productive-soft": {
+      "id": "productive-soft",
+      "tier": "productive",
+      "title": "Supported, but without direction",
+      "narrative": "Maya feels cared for, but leaves without clarity on priorities. She keeps trying to deliver everything, the team continues to absorb overflow, and the QBR preparation is at risk.",
+      "employeePerspective": "\"My manager was really kind about it. I just don't know what I'm allowed to drop — so I'm trying to do it all.\"",
+      "lookingAhead": "Return to the conversation soon to agree on what is essential, what can move, and who will cover what."
+    },
+    "recovered": {
+      "id": "recovered",
+      "tier": "productive",
+      "title": "A conversation recovered",
+      "narrative": "After a rocky start, your willingness to own your approach changes the conversation. Maya shares what is happening, and you have a foundation to build a plan together — though she will remember the first ten minutes too.",
+      "employeePerspective": "\"It started badly, but I respected that my manager stopped and reset. That's not common.\"",
+      "lookingAhead": "Use the restored trust to agree on a concrete plan right away, and reflect on how to open with curiosity next time."
+    },
+    "partial": {
+      "id": "partial",
+      "tier": "partial",
+      "title": "Expectations set, root cause unresolved",
+      "narrative": "The meeting ends with deadlines confirmed, but Maya keeps her situation to herself. Her output improves briefly, then slips again three weeks later — right before the QBR.",
+      "employeePerspective": "\"I said I'd make it work. I'm not sure how. It didn't feel like the right place to say more.\"",
+      "lookingAhead": "You will likely need to revisit this. Next time, lead with curiosity and respect her boundaries while still offering support."
+    },
+    "partial-handoff": {
+      "id": "partial-handoff",
+      "tier": "partial",
+      "title": "Referred, but not supported",
+      "narrative": "Maya contacts HR and learns about leave options, but no one adjusts her workload or priorities. She continues to struggle while working through the paperwork.",
+      "employeePerspective": "\"HR was helpful. But it felt like my manager didn't want to deal with it.\"",
+      "lookingAhead": "Resources and managerial support work best together. Re-engage Maya directly about her work plan."
+    },
+    "strained-compliance": {
+      "id": "strained-compliance",
+      "tier": "strained",
+      "title": "Deadlines met, trust lowered",
+      "narrative": "Maya hits Wednesday and Friday by working late both nights. The deliverables are fine. Two weeks later, she quietly asks a recruiter about opportunities elsewhere.",
+      "employeePerspective": "\"I got it done. I'm just not sure this is a place where I can say when I'm struggling.\"",
+      "lookingAhead": "Short-term compliance can hide long-term retention risk. Reopen the conversation with curiosity and an acknowledgment of how the first one went."
+    },
+    "strained": {
+      "id": "strained",
+      "tier": "strained",
+      "title": "A conversation that closed doors",
+      "narrative": "Maya leaves the meeting feeling judged. Her silence in meetings deepens, the next deadline also slips, and a teammate mentions to you that she seems \"really down.\"",
+      "employeePerspective": "\"My manager thinks I don't care. I care a lot. I just can't do everything right now.\"",
+      "lookingAhead": "This relationship needs repair. Start by owning how the conversation went and asking — genuinely — how she is doing."
+    }
+  }
+}

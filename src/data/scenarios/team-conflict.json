@@ -1,0 +1,603 @@
+{
+  "id": "team-conflict",
+  "title": "Resolving Conflict Between Team Members",
+  "shortTitle": "Team Conflict",
+  "summary": "A public Slack exchange has left your QA lead and delivery coordinator barely speaking two weeks before a major release. Facilitate a joint conversation that gets beneath positions to shared interests.",
+  "difficulty": "advanced",
+  "estimatedMinutes": 16,
+  "competencies": ["conflictResolution", "emotionalIntelligence", "activeListening", "empathy", "problemSolving", "coaching"],
+  "objectives": [
+    { "id": "tc1", "text": "Establish ground rules and psychological safety at the start of a facilitated conflict conversation.", "competency": "conflictResolution" },
+    { "id": "tc2", "text": "Remain impartial while acknowledging each party's emotions and perspective.", "competency": "emotionalIntelligence" },
+    { "id": "tc3", "text": "Use structured listening techniques to move parties from positions to underlying interests.", "competency": "activeListening" },
+    { "id": "tc4", "text": "Guide the parties to a mutually owned working agreement.", "competency": "problemSolving" }
+  ],
+  "status": "available",
+  "personaIds": ["priya", "marcus"],
+  "tags": ["conflict", "mediation", "cross-functional", "release"],
+  "context": {
+    "setting": "A joint 45-minute meeting in a small conference room. You lead the product delivery team; both Priya and Marcus report to you.",
+    "situation": "In last Friday's release channel, which has 40 members, Marcus posted: \"QA is the bottleneck again. We'll miss the date if testing doesn't speed up.\" Priya replied: \"Maybe if builds showed up on time, we wouldn't be.\" Since then they have communicated only through tickets, stand-ups have been tense, and the release is two weeks away.",
+    "background": [
+      "Priya's QA team has worked three weekends this quarter.",
+      "Marcus accepted two late scope changes from stakeholders this sprint.",
+      "The VP of Product has been messaging Marcus directly about the release date.",
+      "Other team members have started avoiding stand-ups."
+    ],
+    "managerObjective": "Help Priya and Marcus understand each other's pressures, reset how they work together, and leave with a shared working agreement for the next two weeks — without taking sides.",
+    "whatYouKnow": [
+      "Builds have arrived an average of 2.5 days late in the last three sprints.",
+      "Both have privately told you the other is \"impossible to work with.\"",
+      "Neither knows about the pressure the other is under."
+    ]
+  },
+  "startNodeId": "open",
+  "keyPrinciples": [
+    "Set ground rules before content — process creates safety.",
+    "Stay impartial: acknowledge both people, adjudicate neither.",
+    "Ask each person to summarize the other before responding.",
+    "Move from positions (\"QA is slow\") to interests (\"I need predictable test time\").",
+    "Close with an agreement both people helped write."
+  ],
+  "nodes": {
+    "open": {
+      "id": "open",
+      "label": "Opening the joint conversation",
+      "narration": "Priya and Marcus take seats on opposite sides of the table. Neither looks at the other. Priya has a printout of the sprint timeline; Marcus has his phone face-up, buzzing.",
+      "prompt": "How do you open the meeting?",
+      "options": [
+        {
+          "id": "open-rules",
+          "text": "\"Thanks for coming. I asked you both here because the tension is affecting the team, and I think we can fix it. Before we start, can we agree on how we'll talk — one person at a time, focused on the work, not on each other?\"",
+          "approach": "collaborative",
+          "quality": "effective",
+          "ratings": { "conflictResolution": 3, "emotionalIntelligence": 3, "clarity": 3, "empathy": 2 },
+          "trust": 1,
+          "reaction": [
+            { "speakerId": "marcus", "cue": "puts his phone face-down", "text": "Fine by me." },
+            { "speakerId": "priya", "cue": "after a beat", "text": "Sure. As long as it's actually one at a time." }
+          ],
+          "feedback": {
+            "didWell": "You named the purpose, expressed confidence it can be resolved, and established ground rules before anyone made their case.",
+            "improve": "Priya's caveat signals she expects to be interrupted. Be ready to enforce the agreement visibly the first time it is tested.",
+            "why": "Agreed process creates safety in high-emotion conversations. When ground rules are set up front, enforcing them later feels fair rather than personal.",
+            "perception": "Both likely felt the meeting would be fair. Marcus putting his phone away is a small but meaningful signal of engagement.",
+            "alternative": "Model opening. You could also invite them to add a ground rule of their own to increase ownership."
+          },
+          "next": "rules-set"
+        },
+        {
+          "id": "open-blame",
+          "text": "\"I saw the Slack thread. That was unprofessional from both of you, and it can't happen again.\"",
+          "approach": "judgmental",
+          "quality": "partial",
+          "ratings": { "conflictResolution": 1, "emotionalIntelligence": 0, "clarity": 3, "accountability": 3, "empathy": 0 },
+          "trust": -1,
+          "reaction": [
+            { "speakerId": "priya", "cue": "immediately", "text": "Both of us? He called my team the bottleneck in front of forty people." },
+            { "speakerId": "marcus", "cue": "voice rising", "text": "I was stating a fact. Testing slipped three days!" }
+          ],
+          "feedback": {
+            "didWell": "You were clear that public conflict is not acceptable and held both people to the same standard — impartial in principle.",
+            "improve": "Opening with a verdict puts both on the defensive before you have heard either side, and the conflict immediately replays in the room.",
+            "why": "Shared blame feels unfair to each party, because each believes the other started it. Accountability for conduct is important, but it lands better after people feel heard.",
+            "perception": "Priya likely felt you equated her response with the original provocation. Marcus felt you dismissed a real delivery problem.",
+            "alternative": "Set the expectation without a verdict: \"The Slack exchange isn't how we want to work, and I'd like to understand what led to it. First, let's agree on how we'll talk today.\""
+          },
+          "next": "blame-reaction"
+        },
+        {
+          "id": "open-marcus",
+          "text": "\"Marcus, why don't you start? What happened from your side?\"",
+          "approach": "inquiry",
+          "quality": "partial",
+          "ratings": { "conflictResolution": 1, "activeListening": 2, "emotionalIntelligence": 1, "empathy": 2 },
+          "trust": 0,
+          "reaction": [
+            { "speakerId": "marcus", "cue": "words pouring out", "text": "Every sprint, testing is the long pole. Leadership asks me why we're late and I have nothing to tell them. I'm tired of being the one who takes the heat." },
+            { "speakerId": "priya", "cue": "crosses her arms", "text": "Of course." }
+          ],
+          "feedback": {
+            "didWell": "You opened with a question and gave someone space to speak — a step toward understanding.",
+            "improve": "Starting with Marcus without any framing or ground rules can look like taking his side, since his post began the public exchange.",
+            "why": "In conflict, sequence signals status. Without an agreed process, whoever speaks first sets the narrative and the other prepares a rebuttal.",
+            "perception": "Priya likely felt her perspective was secondary. Marcus felt heard, but has now framed the issue as \"testing is slow\" in front of her.",
+            "alternative": "Frame first, then choose the order transparently: \"I'd like to hear from both of you, without interruption. Who would like to go first?\""
+          },
+          "next": "venting"
+        }
+      ]
+    },
+    "rules-set": {
+      "id": "rules-set",
+      "label": "Structuring the exchange",
+      "narration": "Both have agreed to the ground rules. The room is still tense, but they are waiting for your lead.",
+      "prompt": "How do you structure the next part of the conversation?",
+      "options": [
+        {
+          "id": "rules-summarize",
+          "text": "\"I'd like each of you to describe what has been hardest about this release from your side. Then the other person summarizes what they heard before responding. Who would like to go first?\"",
+          "approach": "collaborative",
+          "quality": "effective",
+          "ratings": { "activeListening": 3, "conflictResolution": 3, "empathy": 3, "coaching": 2 },
+          "trust": 1,
+          "reaction": [
+            { "speakerId": "priya", "cue": "after a pause", "text": "I'll go. Builds are landing two days before code freeze. My team has worked three weekends this quarter to cover it, and then we get called the bottleneck." },
+            { "speakerId": "marcus", "cue": "summarizing, slowly", "text": "So… you're getting builds late, and your team is absorbing it on weekends. I… didn't know about the weekends." }
+          ],
+          "feedback": {
+            "didWell": "You created a structured listening exercise that forces genuine understanding before rebuttal, and let them choose the order.",
+            "improve": "Make sure both summaries are accurate; gently ask the speaker, \"Did he get that right?\" before moving on.",
+            "why": "Summarizing before responding slows the exchange, reduces misinterpretation, and often reveals information neither party knew.",
+            "perception": "Priya likely felt heard for the first time in this conflict. Marcus discovered something that changes his view.",
+            "alternative": "Model response. Add a check: \"Priya, is that accurate? Anything he missed?\""
+          },
+          "next": "understanding"
+        },
+        {
+          "id": "rules-solution",
+          "text": "\"Let's skip the history and focus on the solution. How do we hit the release date?\"",
+          "approach": "directive",
+          "quality": "partial",
+          "ratings": { "problemSolving": 2, "activeListening": 0, "conflictResolution": 1, "clarity": 2 },
+          "trust": 0,
+          "reaction": [
+            { "speakerId": "marcus", "text": "Honestly, testing needs to compress." },
+            { "speakerId": "priya", "cue": "tightly", "text": "Testing can compress when builds arrive on time." }
+          ],
+          "feedback": {
+            "didWell": "Your focus on the shared goal — the release — is useful and future-oriented.",
+            "improve": "Skipping the \"history\" skips the interests behind the positions. They immediately restate the same positions that caused the conflict.",
+            "why": "Problem-solving before understanding tends to produce position-bargaining. People can only collaborate on solutions once they feel heard.",
+            "perception": "Both likely felt their frustrations were being brushed aside. The release goal is shared, but the explanations for the problem are not.",
+            "alternative": "Acknowledge the goal, then explore first: \"We all want to hit the date. To get there, I need to understand what's been hardest for each of you.\""
+          },
+          "next": "surface"
+        },
+        {
+          "id": "rules-singleout",
+          "text": "\"Marcus, your message started this. Do you want to begin by addressing it?\"",
+          "approach": "judgmental",
+          "quality": "limited",
+          "ratings": { "conflictResolution": 0, "emotionalIntelligence": 1, "empathy": 0, "accountability": 2 },
+          "trust": -1,
+          "reaction": [
+            { "speakerId": "marcus", "cue": "face reddening", "text": "So it's all on me? I said what everyone in leadership is already saying!" },
+            { "speakerId": "priya", "cue": "quietly", "text": "Here we go." }
+          ],
+          "feedback": {
+            "didWell": "You are right that the public post deserves to be addressed, and naming conduct directly is part of accountability.",
+            "improve": "Singling Marcus out in front of Priya breaks the impartiality you just set up and puts him on trial.",
+            "why": "A facilitator who appears to take sides loses the trust of the \"accused\" party and often emboldens the other, escalating the conflict.",
+            "perception": "Marcus likely felt ambushed and blamed. Priya may feel briefly vindicated, but she has also seen you take sides.",
+            "alternative": "Address conduct privately, or later in the conversation for both: \"Before we finish, let's agree on how we'll handle disagreements in public channels.\""
+          },
+          "next": "escalate"
+        }
+      ]
+    },
+    "blame-reaction": {
+      "id": "blame-reaction",
+      "label": "Recovering from a rocky start",
+      "narration": "Both are now defending themselves — and arguing with each other through you.",
+      "prompt": "The conversation is escalating. What do you do?",
+      "options": [
+        {
+          "id": "blame-reset",
+          "text": "\"You're right — I came in hot, and that's not fair to either of you. Let me reset. I'm not here to assign blame. I want to understand what's going on for each of you.\"",
+          "approach": "repair",
+          "quality": "effective",
+          "ratings": { "emotionalIntelligence": 3, "conflictResolution": 3, "empathy": 2, "activeListening": 2 },
+          "trust": 2,
+          "reaction": [
+            { "speakerId": "priya", "cue": "slightly surprised", "text": "Okay. Thank you." },
+            { "speakerId": "marcus", "cue": "exhales", "text": "Yeah. Okay." }
+          ],
+          "feedback": {
+            "didWell": "You recognized your opening fueled the conflict, owned it, and reset the purpose. That models exactly the behavior you want from them.",
+            "improve": "Follow the reset with ground rules so the next exchange has structure.",
+            "why": "A facilitator's visible self-correction lowers everyone's defenses. It signals that admitting a misstep is safe here.",
+            "perception": "Both likely felt you were fair after all. Their brief responses are a cautious willingness to try again.",
+            "alternative": "Strong repair. Add: \"Can we agree on one person at a time, focused on the work?\""
+          },
+          "next": "understanding"
+        },
+        {
+          "id": "blame-data",
+          "text": "\"Okay, let's look at the timeline data and see where the slippage actually happened.\"",
+          "approach": "directive",
+          "quality": "partial",
+          "ratings": { "problemSolving": 3, "conflictResolution": 1, "emotionalIntelligence": 1, "clarity": 2 },
+          "trust": 0,
+          "reaction": [
+            { "speakerId": "priya", "cue": "sliding her printout across", "text": "Builds averaged two and a half days late. It's all here." },
+            { "speakerId": "marcus", "cue": "defensive", "text": "Because scope changed twice. That's not my fault either." }
+          ],
+          "feedback": {
+            "didWell": "Shifting to objective data is a useful de-escalation tactic and can depersonalize the issue.",
+            "improve": "Data introduced while people feel blamed becomes ammunition. Priya uses it to prove her point; Marcus defends against it.",
+            "why": "Facts persuade once emotions are acknowledged. Before that, each party selects the facts that support their position.",
+            "perception": "Both likely feel the meeting is now about proving who was right.",
+            "alternative": "Acknowledge first, then use the data together: \"This has clearly been frustrating for both of you. Let's look at the timeline as a shared problem.\""
+          },
+          "next": "surface"
+        },
+        {
+          "id": "blame-stop",
+          "text": "\"I don't need to know who started it. I need it to stop.\"",
+          "approach": "directive",
+          "quality": "limited",
+          "ratings": { "conflictResolution": 0, "emotionalIntelligence": 0, "empathy": 0, "clarity": 2, "accountability": 2 },
+          "trust": -1,
+          "reaction": [
+            { "speakerId": "priya", "cue": "sharply", "text": "Then why are we here?" },
+            { "speakerId": "marcus", "cue": "throwing up his hands", "text": "Unbelievable." }
+          ],
+          "feedback": {
+            "didWell": "You were unambiguous that the behavior needs to change.",
+            "improve": "Demanding that the conflict stop without understanding its cause treats a systemic issue as a behavior problem.",
+            "why": "Suppressed conflict goes underground. Without addressing late builds and stakeholder pressure, the tension will resurface.",
+            "perception": "Both likely felt dismissed. Priya's \"Then why are we here?\" is a fair challenge to the meeting's purpose.",
+            "alternative": "Combine the expectation with curiosity: \"It needs to stop — and for that, I need to understand what's driving it.\""
+          },
+          "next": "escalate"
+        }
+      ]
+    },
+    "venting": {
+      "id": "venting",
+      "label": "Responding to emotional venting",
+      "narration": "Marcus is flushed and talking fast. Priya is staring at the table, arms crossed, clearly preparing a response.",
+      "prompt": "Marcus has vented, and Priya is bristling. What do you say?",
+      "options": [
+        {
+          "id": "vent-reflect",
+          "text": "\"Marcus, it sounds like you're under real pressure from leadership and feeling exposed. Priya, I want to hear your side too — what's been happening from where you sit?\"",
+          "approach": "empathetic",
+          "quality": "effective",
+          "ratings": { "empathy": 3, "emotionalIntelligence": 3, "activeListening": 3, "conflictResolution": 3 },
+          "trust": 1,
+          "reaction": [
+            { "speakerId": "marcus", "cue": "slowing down", "text": "Yeah. Exactly that." },
+            { "speakerId": "priya", "cue": "measured", "text": "Builds land two days before code freeze. My team has worked three weekends to cover it. We're not the bottleneck — we're the buffer." }
+          ],
+          "feedback": {
+            "didWell": "You named Marcus's emotion accurately — which calms someone who is flooded — and immediately gave Priya equal space.",
+            "improve": "Consider asking Marcus to summarize Priya's point before he responds, to keep the listening going in both directions.",
+            "why": "Accurate emotional labeling reduces arousal. Balancing airtime restores the impartiality a slightly uneven start put at risk.",
+            "perception": "Marcus likely felt understood and calmed. Priya felt invited rather than accused, so she responded with information instead of a counterattack.",
+            "alternative": "Model response. Next: \"Marcus, can you say back what you heard from Priya?\""
+          },
+          "next": "understanding"
+        },
+        {
+          "id": "vent-rebuttal",
+          "text": "\"Priya, how do you respond to that?\"",
+          "approach": "inquiry",
+          "quality": "partial",
+          "ratings": { "conflictResolution": 1, "activeListening": 1, "empathy": 1, "emotionalIntelligence": 1 },
+          "trust": -1,
+          "reaction": [
+            { "speakerId": "priya", "cue": "sharply", "text": "How do I respond? My team works weekends to cover for scope chaos, and I'm the bottleneck?" },
+            { "speakerId": "marcus", "cue": "louder", "text": "I didn't say you personally!" }
+          ],
+          "feedback": {
+            "didWell": "You gave Priya a turn, which is fair and necessary.",
+            "improve": "\"How do you respond to that?\" invites a rebuttal rather than a perspective, so the exchange becomes a debate.",
+            "why": "Wording shapes what people say next. Asking for a \"response\" sets up point and counterpoint; asking for their experience opens understanding.",
+            "perception": "Priya likely felt she had to defend her team. Marcus heard an attack and escalated.",
+            "alternative": "Invite experience, not rebuttal: \"Priya, what's this release been like from your side?\""
+          },
+          "next": "escalate"
+        },
+        {
+          "id": "vent-frame",
+          "text": "\"Okay, so the core issue is testing time. Let's talk about how to speed up QA.\"",
+          "approach": "directive",
+          "quality": "limited",
+          "ratings": { "problemSolving": 1, "conflictResolution": 0, "empathy": 0, "activeListening": 1 },
+          "trust": -1,
+          "reaction": [
+            { "speakerId": "priya", "cue": "coldly", "text": "Fine. Whatever works." },
+            { "speakerId": "marcus", "cue": "relieved", "text": "Great, that's all I'm asking." }
+          ],
+          "feedback": {
+            "didWell": "You tried to move from venting toward a concrete problem to solve.",
+            "improve": "You adopted Marcus's framing of the problem without hearing Priya — effectively deciding the conflict in his favor.",
+            "why": "Defining the problem is the most powerful move in a conflict. A facilitator who frames it from one side's perspective loses the other's trust.",
+            "perception": "Priya likely felt judged before speaking. Her \"whatever works\" is withdrawal, not agreement.",
+            "alternative": "Hold the framing open: \"I hear testing time as one piece. Priya, what's your view of what's driving the delays?\""
+          },
+          "next": "surface"
+        }
+      ]
+    },
+    "understanding": {
+      "id": "understanding",
+      "label": "Turning understanding into agreement",
+      "narration": "Something shifts. Priya explains that requirements have changed mid-sprint twice. Marcus admits he accepted both changes because the VP of Product was pressing him directly. \"I didn't realize the scope changes were landing on your team that late,\" he says. Priya pauses: \"And I didn't know leadership was coming at you directly.\"",
+      "prompt": "They now understand each other's pressures. How do you close?",
+      "options": [
+        {
+          "id": "und-cocreate",
+          "text": "\"It sounds like you're both dealing with the same root problem: late scope changes. What would a working agreement look like that protects test time and gives Marcus something credible to tell leadership?\"",
+          "approach": "collaborative",
+          "quality": "effective",
+          "ratings": { "conflictResolution": 3, "problemSolving": 3, "coaching": 3, "activeListening": 2 },
+          "trust": 1,
+          "reaction": [
+            { "speakerId": "marcus", "cue": "thinking aloud", "text": "What if any scope change after day five needs sign-off from both of us — and I send leadership a daily test-status update that Priya writes?" },
+            { "speakerId": "priya", "cue": "nodding", "text": "I can do that. And we'll flag risks at stand-up instead of in Slack." }
+          ],
+          "feedback": {
+            "didWell": "You reframed the conflict as a shared problem caused by the system, not each other, and invited them to design the solution together.",
+            "improve": "Capture the agreement in writing and schedule a short check-in after the release.",
+            "why": "Agreements built by the parties are far more durable than those imposed by a manager. Naming a shared root cause unites them against the problem.",
+            "perception": "Both likely feel like partners now. Their proposals build on each other — a sign of genuine collaboration.",
+            "alternative": "Model close. Add: \"Let's write that down, share it with the team, and review it after the release.\""
+          },
+          "next": null,
+          "outcome": "breakthrough"
+        },
+        {
+          "id": "und-dictate",
+          "text": "\"Great. Marcus, stop accepting late scope changes. Priya, send Marcus daily test status. Let's go.\"",
+          "approach": "directive",
+          "quality": "partial",
+          "ratings": { "conflictResolution": 2, "problemSolving": 2, "coaching": 0, "clarity": 3 },
+          "trust": 0,
+          "reaction": [
+            { "speakerId": "marcus", "cue": "uncertain", "text": "I can try… but I can't exactly say no to the VP." },
+            { "speakerId": "priya", "text": "Okay." }
+          ],
+          "feedback": {
+            "didWell": "Your solution addresses the real issues and is specific — this is not a bad plan.",
+            "improve": "After the hard work of building understanding, you closed by imposing the solution. Marcus's concern about the VP has nowhere to go.",
+            "why": "Imposed solutions lack ownership and often miss constraints. Marcus cannot \"stop accepting\" changes without your support upward.",
+            "perception": "Both likely appreciate the clarity but feel the agreement is yours, not theirs. Marcus feels set up to fail with leadership.",
+            "alternative": "Invite them to design it, and offer your support: \"What would you both need? And Marcus, I'll talk to the VP about the change process with you.\""
+          },
+          "next": null,
+          "outcome": "productive"
+        },
+        {
+          "id": "und-leave",
+          "text": "\"Glad we cleared the air. I think you two can take it from here.\"",
+          "approach": "avoidant",
+          "quality": "limited",
+          "ratings": { "conflictResolution": 1, "problemSolving": 0, "coaching": 1, "clarity": 0 },
+          "trust": 0,
+          "reaction": [
+            { "speakerId": "marcus", "text": "Yeah, thanks." },
+            { "speakerId": "priya", "cue": "glancing at Marcus", "text": "Sure." }
+          ],
+          "feedback": {
+            "didWell": "You recognized the progress they made and expressed confidence in them.",
+            "improve": "Understanding without an agreement leaves the root cause — late scope changes — untouched. The next scope change will reignite the conflict.",
+            "why": "Conflict resolution has two parts: restoring the relationship and changing the conditions that caused the conflict. You achieved only the first.",
+            "perception": "Both likely leave feeling better — but with no shared plan for what happens when the next late change arrives.",
+            "alternative": "Capture the moment: \"You've identified the real problem. What do we agree to do differently for the next two weeks?\""
+          },
+          "next": null,
+          "outcome": "partial-relief"
+        }
+      ]
+    },
+    "surface": {
+      "id": "surface",
+      "label": "Noticing unresolved tension",
+      "narration": "The conversation has turned to timelines. Both are polite but clipped. Priya says, \"Fine, whatever works\"; Marcus nods along. The underlying frustration has not been named.",
+      "prompt": "There's surface agreement, but tension remains. What do you do?",
+      "options": [
+        {
+          "id": "surf-check",
+          "text": "\"Before we lock anything in, I want to check something. It feels like there's still something unresolved. Is there anything about how this has felt that we haven't said yet?\"",
+          "approach": "empathetic",
+          "quality": "effective",
+          "ratings": { "emotionalIntelligence": 3, "conflictResolution": 3, "activeListening": 3, "empathy": 2 },
+          "trust": 2,
+          "reaction": [
+            { "speakerId": "priya", "cue": "after a long pause", "text": "Honestly? Being called the bottleneck in front of everyone, after three weekends. That's what hurt." },
+            { "speakerId": "marcus", "cue": "quietly", "text": "…That's fair. I was getting hammered by the VP and took it out on you. I'm sorry." }
+          ],
+          "feedback": {
+            "didWell": "You noticed the gap between what was said and what was felt, named it without blame, and created space for the real issue.",
+            "improve": "After this breakthrough, return to the practical agreement so the repair is matched by a process change.",
+            "why": "Unspoken hurt undermines any agreement. Surfacing it allows genuine repair and makes the practical plan stick.",
+            "perception": "Priya likely felt finally heard. Marcus's apology suggests he had been carrying regret about the post.",
+            "alternative": "Model response. Next: \"Thank you both. Now let's agree on how to handle late scope changes going forward.\""
+          },
+          "next": null,
+          "outcome": "productive-repair"
+        },
+        {
+          "id": "surf-plan",
+          "text": "\"Okay, here's the plan: code freeze moves up a day, and QA sends status at 4 p.m. daily. Any objections?\"",
+          "approach": "directive",
+          "quality": "partial",
+          "ratings": { "problemSolving": 2, "clarity": 3, "conflictResolution": 1, "emotionalIntelligence": 0 },
+          "trust": 0,
+          "reaction": [
+            { "speakerId": "priya", "text": "No objections." },
+            { "speakerId": "marcus", "text": "Works for me." }
+          ],
+          "feedback": {
+            "didWell": "The plan is concrete and addresses a real constraint. \"Any objections?\" at least invites input.",
+            "improve": "\"Any objections?\" in a tense room almost always gets silence. The public criticism and the scope-change pressure remain unaddressed.",
+            "why": "Silence is not consent. When people feel unheard, they comply in the room and disagree outside it.",
+            "perception": "Both likely agreed in order to end the meeting, not because they support the plan.",
+            "alternative": "Check for real agreement: \"On a scale of 1 to 5, how workable is this for each of you? What would make it a 5?\""
+          },
+          "next": null,
+          "outcome": "partial"
+        },
+        {
+          "id": "surf-wrap",
+          "text": "\"Perfect, sounds like we're aligned. Let's wrap up and get back to it.\"",
+          "approach": "avoidant",
+          "quality": "limited",
+          "ratings": { "emotionalIntelligence": 0, "conflictResolution": 0, "activeListening": 0, "problemSolving": 1 },
+          "trust": -1,
+          "reaction": [
+            { "speakerId": "priya", "cue": "already standing", "text": "Great." },
+            { "speakerId": "marcus", "cue": "checking his phone", "text": "Yep." }
+          ],
+          "feedback": {
+            "didWell": "You respected everyone's time and kept the meeting brief.",
+            "improve": "You mistook politeness for alignment. Nothing has been resolved, and both know it.",
+            "why": "Ending a conflict conversation prematurely teaches people that raising issues is pointless, which drives conflict underground.",
+            "perception": "Both likely left feeling the meeting was a check-the-box exercise.",
+            "alternative": "Name what you notice: \"I'm not sure we're aligned yet. What's still sitting with each of you?\""
+          },
+          "next": null,
+          "outcome": "strained-underground"
+        }
+      ]
+    },
+    "escalate": {
+      "id": "escalate",
+      "label": "De-escalating rising emotion",
+      "narration": "Voices are rising. Priya's jaw is tight; Marcus is half out of his chair. Through the glass wall, two team members glance in.",
+      "prompt": "The conflict is escalating in the room. What do you do?",
+      "options": [
+        {
+          "id": "esc-pause",
+          "text": "\"Let's pause. I can see how much this matters to both of you. Let's take two minutes. When we come back, I'd like each of you to tell me what you need from the other — not what the other did wrong.\"",
+          "approach": "empathetic",
+          "quality": "effective",
+          "ratings": { "emotionalIntelligence": 3, "conflictResolution": 3, "empathy": 3, "problemSolving": 2 },
+          "trust": 2,
+          "reaction": [
+            { "speakerId": "marcus", "cue": "after the break, calmer", "text": "What I need is a heads-up when testing is at risk — before leadership asks me." },
+            { "speakerId": "priya", "cue": "calmer", "text": "And I need scope changes to stop landing on us two days before freeze." }
+          ],
+          "feedback": {
+            "didWell": "You interrupted the escalation, validated the emotion without judging it, and reframed the next step from blame to needs.",
+            "improve": "Use their stated needs to build a written agreement before the meeting ends.",
+            "why": "A short pause lets emotional arousal subside. Asking about needs moves people from positions to interests — where solutions live.",
+            "perception": "Both likely felt you were in control and fair. The reframe gave them a way back without losing face.",
+            "alternative": "Model de-escalation. Next: \"Those needs fit together. What would an agreement look like?\""
+          },
+          "next": null,
+          "outcome": "productive-recovered"
+        },
+        {
+          "id": "esc-end",
+          "text": "\"Both of you, stop. We'll continue this when you can be professional.\"",
+          "approach": "directive",
+          "quality": "partial",
+          "ratings": { "conflictResolution": 1, "emotionalIntelligence": 1, "clarity": 2, "accountability": 2, "empathy": 0 },
+          "trust": -1,
+          "reaction": [
+            { "speakerId": "priya", "cue": "gathering her printout", "text": "Fine." },
+            { "speakerId": "marcus", "cue": "leaving quickly", "text": "Whatever." }
+          ],
+          "feedback": {
+            "didWell": "You stopped a conversation that was causing harm and set a behavioral standard.",
+            "improve": "Ending the meeting with a rebuke leaves both people embarrassed, with nothing resolved and two weeks to release.",
+            "why": "Stopping escalation is right, but how you stop matters. A judgmental close adds shame to the existing conflict.",
+            "perception": "Both likely felt scolded. They now share one thing: frustration with you.",
+            "alternative": "Pause rather than end: \"Let's take a break. When we come back, I'd like to focus on what each of you needs.\""
+          },
+          "next": null,
+          "outcome": "strained"
+        },
+        {
+          "id": "esc-side",
+          "text": "\"Marcus, you did call her team the bottleneck in public. I think you owe Priya an apology.\"",
+          "approach": "judgmental",
+          "quality": "limited",
+          "ratings": { "conflictResolution": 0, "emotionalIntelligence": 1, "accountability": 2, "empathy": 1 },
+          "trust": -2,
+          "reaction": [
+            { "speakerId": "marcus", "cue": "stiffly", "text": "Fine. Sorry, Priya." },
+            { "speakerId": "priya", "cue": "unmoved", "text": "…Okay." }
+          ],
+          "feedback": {
+            "didWell": "Public criticism of a colleague's team does merit acknowledgment, and you named the impact.",
+            "improve": "A demanded apology is rarely sincere. You also abandoned impartiality, leaving Marcus resentful and the underlying problem untouched.",
+            "why": "Forced apologies satisfy the facilitator more than the parties. Genuine repair comes from understanding, not instruction.",
+            "perception": "Marcus likely feels humiliated. Priya knows the apology was not meant.",
+            "alternative": "Create conditions for a genuine apology: help Marcus understand the impact, and let him choose to acknowledge it."
+          },
+          "next": null,
+          "outcome": "strained-sides"
+        }
+      ]
+    }
+  },
+  "outcomes": {
+    "breakthrough": {
+      "id": "breakthrough",
+      "tier": "breakthrough",
+      "title": "From adversaries to allies",
+      "narrative": "Priya and Marcus co-author a scope-change protocol and a daily status update. Marcus shares the protocol with the VP of Product, who agrees to it. The release ships on time, and Marcus publicly credits the QA team in the release channel.",
+      "employeePerspective": "Priya: \"For the first time, it feels like we're on the same side.\" Marcus: \"I finally have something solid to tell leadership.\"",
+      "lookingAhead": "Review the agreement after the release, and celebrate the change visibly so the team sees conflict being handled well."
+    },
+    "productive": {
+      "id": "productive",
+      "tier": "productive",
+      "title": "Understanding with a manager's plan",
+      "narrative": "The relationship is much improved, and your plan is followed. But Marcus still accepts one late change because he does not feel able to push back on the VP, and Priya's team works another weekend.",
+      "employeePerspective": "Marcus: \"I get it now — but nobody's helped me with the VP.\" Priya: \"Better. Not fixed.\"",
+      "lookingAhead": "Support Marcus in managing upward, and invite both to refine the plan they did not get to design."
+    },
+    "productive-repair": {
+      "id": "productive-repair",
+      "tier": "productive",
+      "title": "The real issue, finally said",
+      "narrative": "Marcus's apology changes the atmosphere. In the remaining time, they agree on daily status updates and a scope-change checkpoint. The repair is real, though the process still needs firming up.",
+      "employeePerspective": "Priya: \"His apology meant a lot. I didn't expect it.\"",
+      "lookingAhead": "Turn the repaired relationship into a written agreement, and check in after the release."
+    },
+    "productive-recovered": {
+      "id": "productive-recovered",
+      "tier": "productive",
+      "title": "Recovered from the brink",
+      "narrative": "The pause works. Their stated needs fit together, and they agree on early risk alerts and a cutoff for scope changes. The team notices that stand-ups feel lighter by the end of the week.",
+      "employeePerspective": "Marcus: \"I needed that break. I was too wound up to listen.\"",
+      "lookingAhead": "Reflect on what led to the escalation, and set ground rules at the start of future conflict conversations."
+    },
+    "partial-relief": {
+      "id": "partial-relief",
+      "tier": "partial",
+      "title": "Air cleared, problem unsolved",
+      "narrative": "Priya and Marcus are noticeably warmer, but nothing changes in how scope is managed. A late requirement arrives three days later, and the old frustration returns — though more politely this time.",
+      "employeePerspective": "Marcus: \"We're good now. I just don't know what to do when the VP asks for changes.\"",
+      "lookingAhead": "Reconvene briefly to turn understanding into a practical agreement."
+    },
+    "partial": {
+      "id": "partial",
+      "tier": "partial",
+      "title": "Compliance in the room",
+      "narrative": "Your plan is implemented, and the release proceeds. But Priya and Marcus still avoid each other, and the rest of the team notices that the issue was \"managed\" rather than resolved.",
+      "employeePerspective": "Priya: \"We follow the process. We don't talk.\"",
+      "lookingAhead": "The relationship needs attention. Surface what has not been said, ideally in a smaller, more personal conversation."
+    },
+    "strained-underground": {
+      "id": "strained-underground",
+      "tier": "strained",
+      "title": "The conflict went underground",
+      "narrative": "The meeting ends politely. Two days later, Priya's team stops attending Marcus's planning sessions, and side-channel complaints increase. The release slips by four days.",
+      "employeePerspective": "Priya: \"What was the point of that meeting?\"",
+      "lookingAhead": "Reopen the conversation honestly: \"I wrapped up too quickly. I don't think we resolved it.\""
+    },
+    "strained": {
+      "id": "strained",
+      "tier": "strained",
+      "title": "Shut down, not settled",
+      "narrative": "Both leave embarrassed. The team heard raised voices through the glass, and gossip spreads. The conflict now includes frustration with you as a leader.",
+      "employeePerspective": "Marcus: \"I got scolded like a kid. Nothing got fixed.\"",
+      "lookingAhead": "Meet each person individually to repair trust, then reconvene with clear ground rules."
+    },
+    "strained-sides": {
+      "id": "strained-sides",
+      "tier": "strained",
+      "title": "A side was taken",
+      "narrative": "Marcus delivers the apology, but resents it. He begins routing updates around Priya, and stakeholders notice the friction. Priya appreciates being backed, but the working relationship is no better.",
+      "employeePerspective": "Marcus: \"My manager has clearly picked a side.\"",
+      "lookingAhead": "Rebuild impartiality. Talk with Marcus privately about the impact of his post and the pressure he is under."
+    }
+  }
+}

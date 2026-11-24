@@ -1,0 +1,53 @@
+[
+  {
+    "id": "resisting-change",
+    "title": "Managing an Employee Who Resists Change",
+    "shortTitle": "Resistance to Change",
+    "summary": "A respected eleven-year veteran is quietly working around the new workflow platform and influencing peers to do the same. Turn a skeptic into a contributor.",
+    "difficulty": "intermediate",
+    "estimatedMinutes": 14,
+    "competencies": ["empathy", "activeListening", "coaching", "problemSolving"],
+    "objectives": [
+      { "id": "rc1", "text": "Distinguish legitimate concerns from resistance driven by loss or uncertainty.", "competency": "activeListening" },
+      { "id": "rc2", "text": "Involve a resistant employee in shaping how a change is implemented.", "competency": "coaching" },
+      { "id": "rc3", "text": "Communicate a non-negotiable change while acknowledging what is being lost.", "competency": "empathy" }
+    ],
+    "status": "upcoming",
+    "personaIds": ["ruth"],
+    "tags": ["change management", "influence", "veteran employee"]
+  },
+  {
+    "id": "promotion-coaching",
+    "title": "Coaching an Employee Who Wants a Promotion",
+    "shortTitle": "Promotion Coaching",
+    "summary": "Your strongest closer asks why he has not been promoted yet. Coach him toward a realistic development plan without dampening his ambition.",
+    "difficulty": "advanced",
+    "estimatedMinutes": 15,
+    "competencies": ["coaching", "clarity", "emotionalIntelligence", "accountability"],
+    "objectives": [
+      { "id": "pc1", "text": "Give candid, evidence-based feedback on promotion readiness.", "competency": "clarity" },
+      { "id": "pc2", "text": "Use the GROW model to co-create a development plan.", "competency": "coaching" },
+      { "id": "pc3", "text": "Manage disappointment without making promises you cannot keep.", "competency": "emotionalIntelligence" }
+    ],
+    "status": "upcoming",
+    "personaIds": ["devon"],
+    "tags": ["career development", "GROW", "expectations"]
+  },
+  {
+    "id": "missed-deadlines",
+    "title": "Addressing Accountability and Missed Deadlines",
+    "shortTitle": "Accountability",
+    "summary": "A coordinator keeps saying \"sure\" and keeps missing deadlines. Re-engage them and agree on commitments they genuinely own.",
+    "difficulty": "beginner",
+    "estimatedMinutes": 12,
+    "competencies": ["accountability", "clarity", "coaching", "activeListening"],
+    "objectives": [
+      { "id": "md1", "text": "Describe a pattern of missed commitments with specific examples.", "competency": "clarity" },
+      { "id": "md2", "text": "Explore the drivers of disengagement before setting new expectations.", "competency": "activeListening" },
+      { "id": "md3", "text": "Agree on observable commitments and a follow-up mechanism.", "competency": "accountability" }
+    ],
+    "status": "upcoming",
+    "personaIds": ["sam"],
+    "tags": ["accountability", "engagement", "follow-through"]
+  }
+]

@@ -1,0 +1,189 @@
+[
+  {
+    "moduleId": "declining-performance",
+    "title": "Open with observation, not judgment",
+    "estimatedMinutes": 5,
+    "concept": {
+      "intro": "When a strong performer's work slips, the first sentence of the conversation decides whether they explain or defend. Evaluations (\"your performance has declined\") put people on guard. Observations paired with curiosity (\"I've noticed three deadlines slip, which isn't like you. How are things going?\") invite them to tell you what is really happening.",
+      "model": {
+        "name": "Observe, Ask, Listen",
+        "steps": [
+          { "label": "Observe", "text": "Name specific, factual changes you have seen. Avoid labels like \"declining\" or \"checked out.\"" },
+          { "label": "Ask", "text": "Follow with one open, genuine question about how things are going." },
+          { "label": "Listen", "text": "Pause. Let silence do the work before you suggest solutions or restate expectations." }
+        ]
+      }
+    },
+    "activity": {
+      "type": "sort",
+      "instructions": "Sort each opening line into the column where it belongs. You'll get feedback on every choice.",
+      "bins": [
+        { "id": "effective", "label": "Invites the conversation" },
+        { "id": "ineffective", "label": "Shuts it down" }
+      ],
+      "items": [
+        { "id": "s1", "text": "\"I've noticed the last two reports came in late, which isn't like you. How are things going?\"", "bin": "effective", "explanation": "A specific observation, a note that this is unusual, and an open question. It signals concern rather than blame." },
+        { "id": "s2", "text": "\"Your performance has really dropped off lately.\"", "bin": "ineffective", "explanation": "\"Dropped off\" is a judgment, not an observation. It gives the employee nothing specific and puts them on the defensive." },
+        { "id": "s3", "text": "\"You've seemed checked out in meetings. What's your problem?\"", "bin": "ineffective", "explanation": "\"Checked out\" labels the person, and \"What's your problem?\" sounds like an accusation." },
+        { "id": "s4", "text": "\"You've been quieter in team meetings recently. Is anything making it harder to contribute?\"", "bin": "effective", "explanation": "It describes an observable behavior and asks about obstacles, which makes it safe to answer honestly." },
+        { "id": "s5", "text": "\"Everyone else is hitting their deadlines. Why aren't you?\"", "bin": "ineffective", "explanation": "Comparing someone with peers triggers defensiveness and shame. It rarely surfaces the real cause." },
+        { "id": "s6", "text": "\"The Q3 report had two calculation errors. That's unusual for you. Can we talk about what's been going on?\"", "bin": "effective", "explanation": "Specific facts, an acknowledgment of their track record, and an invitation to talk." },
+        { "id": "s7", "text": "\"I'm sure it's nothing, but HR wanted me to check in with you.\"", "bin": "ineffective", "explanation": "It minimizes the issue and shifts ownership to HR, so the employee can't tell whether you actually care." },
+        { "id": "s8", "text": "\"I wanted to check in. Your work has been strong for years, and the last few weeks look different. What's changed?\"", "bin": "effective", "explanation": "It frames the change as an exception to a strong record and asks an open question." }
+      ]
+    },
+    "takeaway": "In the practice simulation, watch how Maya responds differently to an observation with a question than to a judgment."
+  },
+  {
+    "moduleId": "constructive-feedback",
+    "title": "Build feedback with Situation–Behavior–Impact",
+    "estimatedMinutes": 6,
+    "concept": {
+      "intro": "Vague feedback (\"great energy, maybe watch the timing\") is easy to give and easy to ignore, especially for a confident performer. The Situation–Behavior–Impact (SBI) model, developed by the Center for Creative Leadership, turns a general impression into feedback that is specific, observable, and hard to dispute.",
+      "model": {
+        "name": "Situation–Behavior–Impact (SBI)",
+        "steps": [
+          { "label": "Situation", "text": "Anchor the feedback to a specific moment: when and where it happened." },
+          { "label": "Behavior", "text": "Describe what the person actually said or did, as a camera would record it. No labels or guesses about motives." },
+          { "label": "Impact", "text": "Explain the concrete effect on people, results, or the relationship." }
+        ]
+      }
+    },
+    "activity": {
+      "type": "build",
+      "instructions": "Turn each vague comment into SBI feedback. Choose the best Situation, Behavior, and Impact. You'll get feedback on each pick.",
+      "rounds": [
+        {
+          "id": "r1",
+          "vague": "\"You need to be more of a team player.\"",
+          "context": "Jordan, a project analyst, didn't share an updated budget file before Monday's planning meeting.",
+          "parts": [
+            {
+              "part": "situation",
+              "options": [
+                { "id": "a", "text": "\"In Monday's planning meeting…\"", "correct": true, "feedback": "Specific: it names a single, identifiable moment." },
+                { "id": "b", "text": "\"Lately…\"", "correct": false, "feedback": "Too general. \"Lately\" invites an argument about how often it happens." },
+                { "id": "c", "text": "\"As usual…\"", "correct": false, "feedback": "\"As usual\" implies a character pattern and puts Jordan on the defensive." }
+              ]
+            },
+            {
+              "part": "behavior",
+              "options": [
+                { "id": "a", "text": "\"…you didn't care about the team's priorities…\"", "correct": false, "feedback": "This guesses at Jordan's motives. You can't observe what someone cares about." },
+                { "id": "b", "text": "\"…the updated budget file hadn't been shared, so we worked from last month's numbers…\"", "correct": true, "feedback": "Observable and factual: it describes what happened, not what it says about Jordan." },
+                { "id": "c", "text": "\"…you were being difficult again…\"", "correct": false, "feedback": "\"Difficult\" is a label, not a behavior, and \"again\" escalates it." }
+              ]
+            },
+            {
+              "part": "impact",
+              "options": [
+                { "id": "a", "text": "\"…and that's not acceptable.\"", "correct": false, "feedback": "This is a verdict, not an impact. It doesn't explain why it matters." },
+                { "id": "b", "text": "\"…and people noticed.\"", "correct": false, "feedback": "Vague and a little threatening. It doesn't name a concrete effect." },
+                { "id": "c", "text": "\"…and we had to redo two hours of planning once the new numbers arrived.\"", "correct": true, "feedback": "A concrete, measurable consequence that Jordan can understand and act on." }
+              ]
+            }
+          ]
+        },
+        {
+          "id": "r2",
+          "vague": "\"Great presentation! Maybe just tighten it up a bit.\"",
+          "context": "Devon's client demo ran 20 minutes over, and he deferred the client's security question.",
+          "parts": [
+            {
+              "part": "situation",
+              "options": [
+                { "id": "a", "text": "\"In general, in your demos…\"", "correct": false, "feedback": "Too broad. It turns one event into a sweeping pattern." },
+                { "id": "b", "text": "\"During Q&A at Thursday's Northwind demo…\"", "correct": true, "feedback": "Specific: a single moment Devon can picture." },
+                { "id": "c", "text": "\"I've been meaning to say…\"", "correct": false, "feedback": "This delays the point and doesn't anchor the feedback to anything." }
+              ]
+            },
+            {
+              "part": "behavior",
+              "options": [
+                { "id": "a", "text": "\"…when their security lead asked about data residency, you said 'we can cover that later' and moved on…\"", "correct": true, "feedback": "It quotes what Devon actually said and did. There is nothing to dispute." },
+                { "id": "b", "text": "\"…you were a bit arrogant with the client…\"", "correct": false, "feedback": "A character judgment. Devon will argue with the label instead of reflecting on the behavior." },
+                { "id": "c", "text": "\"…you kind of rushed things…\"", "correct": false, "feedback": "Vague, and inaccurate too: the demo ran long. It doesn't describe a specific behavior." }
+              ]
+            },
+            {
+              "part": "impact",
+              "options": [
+                { "id": "a", "text": "\"…which is something to think about.\"", "correct": false, "feedback": "It softens the message until there's nothing left to act on." },
+                { "id": "b", "text": "\"…and she didn't speak again. Their VP has since emailed with concerns about the deal.\"", "correct": true, "feedback": "A concrete impact on the client and the deal, the outcome Devon cares about most." },
+                { "id": "c", "text": "\"…and I'm disappointed in you.\"", "correct": false, "feedback": "This makes the feedback about your feelings and his worth, not the business impact." }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    "takeaway": "In the practice simulation, notice how Devon reacts to praise-heavy feedback compared with a clear SBI statement."
+  },
+  {
+    "moduleId": "team-conflict",
+    "title": "Move from positions to interests",
+    "estimatedMinutes": 6,
+    "concept": {
+      "intro": "In a conflict, people state positions: what they say they want (\"Testing needs to speed up\"). Beneath every position is an interest: why they want it (\"I need something credible to tell leadership\"). Positions usually clash. Interests often fit together. A facilitator's job is to help each person name their interests, so the two sides can solve a shared problem instead of defending opposing positions.",
+      "model": {
+        "name": "Positions vs. interests",
+        "steps": [
+          { "label": "Hear the position", "text": "Let each person state what they want, without interruption." },
+          { "label": "Ask why", "text": "Ask, \"What would that give you?\" or \"What do you need to make this work?\"" },
+          { "label": "Find the overlap", "text": "Look for interests both people share, and build the agreement around them." }
+        ]
+      }
+    },
+    "activity": {
+      "type": "match",
+      "instructions": "Each statement is a position someone took in a workplace conflict. Choose the most likely underlying interest for each one.",
+      "items": [
+        {
+          "id": "m1",
+          "speaker": "Marcus, Delivery Coordinator",
+          "position": "\"QA is the bottleneck. Testing has to speed up.\"",
+          "options": [
+            { "id": "a", "text": "He wants Priya's team to look bad.", "correct": false },
+            { "id": "b", "text": "He needs a credible answer when leadership asks why the release is late.", "correct": true },
+            { "id": "c", "text": "He thinks testing is unnecessary.", "correct": false }
+          ],
+          "explanation": "Marcus is under direct pressure from the VP of Product. His underlying interest is credibility with leadership, not criticism of QA."
+        },
+        {
+          "id": "m2",
+          "speaker": "Priya, QA Lead",
+          "position": "\"We are not shortening the test cycle.\"",
+          "options": [
+            { "id": "a", "text": "She needs predictable test time and protection for her team, who have worked three weekends.", "correct": true },
+            { "id": "b", "text": "She doesn't care about the release date.", "correct": false },
+            { "id": "c", "text": "She wants to win the argument with Marcus.", "correct": false }
+          ],
+          "explanation": "Priya's interest is quality and her team's workload. If builds arrive on time, she has no reason to resist the date."
+        },
+        {
+          "id": "m3",
+          "speaker": "A sales director",
+          "position": "\"I need this feature in the next release, no matter what.\"",
+          "options": [
+            { "id": "a", "text": "They want to overrule the product team.", "correct": false },
+            { "id": "b", "text": "They promised it to a key client and need to protect that relationship.", "correct": true },
+            { "id": "c", "text": "They don't understand how releases work.", "correct": false }
+          ],
+          "explanation": "\"No matter what\" usually signals a commitment already made. The real interest is the client relationship, which may be protected in other ways, such as a clear delivery date."
+        },
+        {
+          "id": "m4",
+          "speaker": "A senior engineer",
+          "position": "\"I'm not attending another planning meeting.\"",
+          "options": [
+            { "id": "a", "text": "They need protected time for focused work and feel the meetings don't use their input.", "correct": true },
+            { "id": "b", "text": "They don't want to be part of the team.", "correct": false },
+            { "id": "c", "text": "They are trying to be insubordinate.", "correct": false }
+          ],
+          "explanation": "Refusing meetings is often about time and influence. Asking \"What would make planning worth your time?\" usually reveals a solvable problem."
+        }
+      ]
+    },
+    "takeaway": "In the practice simulation, listen for the interests beneath what Priya and Marcus say, and look for the one they share."
+  }
+]

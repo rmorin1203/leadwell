@@ -1,0 +1,791 @@
+{
+  "id": "constructive-feedback",
+  "title": "Delivering Constructive Feedback",
+  "shortTitle": "Constructive Feedback",
+  "summary": "Your top-performing sales engineer believes a client demo went brilliantly. The client disagrees. Deliver specific, behavior-based feedback that he can hear and act on before Thursday's follow-up.",
+  "difficulty": "intermediate",
+  "estimatedMinutes": 14,
+  "competencies": [
+    "clarity",
+    "coaching",
+    "accountability",
+    "activeListening",
+    "emotionalIntelligence",
+    "problemSolving"
+  ],
+  "objectives": [
+    {
+      "id": "cf1",
+      "text": "Describe a behavior and its impact using specific, observable language (Situation–Behavior–Impact).",
+      "competency": "clarity"
+    },
+    {
+      "id": "cf2",
+      "text": "Use questions to help an overconfident employee recognize a gap in their own performance.",
+      "competency": "coaching"
+    },
+    {
+      "id": "cf3",
+      "text": "Hold a feedback message steady when the employee pushes back with achievements.",
+      "competency": "accountability"
+    },
+    {
+      "id": "cf4",
+      "text": "Secure an employee-owned commitment to a specific behavior change.",
+      "competency": "problemSolving"
+    }
+  ],
+  "status": "available",
+  "personaIds": [
+    "devon"
+  ],
+  "tags": [
+    "feedback",
+    "SBI",
+    "sales",
+    "client impact"
+  ],
+  "context": {
+    "setting": "Monday afternoon, a quick 20-minute 1:1 on video. Devon has another client call right after.",
+    "situation": "Last Thursday, Devon led a product demo for Northwind Logistics, a prospective six-figure account. During Q&A, their security lead asked about data residency; Devon said \"we can cover that later\" and moved on. She did not speak again. The demo ran 20 minutes over. This morning, Northwind's VP of Operations emailed you: \"We left with more questions than answers, and our security team felt dismissed.\"",
+    "background": [
+      "Devon is the top-quota sales engineer on your team this quarter.",
+      "He has told you he wants to be considered for a principal role next year.",
+      "A follow-up demo with Northwind is scheduled for this Thursday.",
+      "You attended the demo and observed the Q&A firsthand."
+    ],
+    "managerObjective": "Help Devon understand the impact of his behavior in the demo and leave with his own concrete plan for Thursday — while keeping him motivated.",
+    "whatYouKnow": [
+      "Devon has not seen the VP's email.",
+      "You observed him interrupt the security lead twice before deferring her question.",
+      "Devon's product knowledge during the demo was excellent."
+    ]
+  },
+  "startNodeId": "open",
+  "keyPrinciples": [
+    "Specific beats general: describe the situation, the behavior, and its impact.",
+    "Questions help confident performers discover gaps they would reject if told.",
+    "Acknowledge strengths without diluting the core message.",
+    "Feedback is complete only when the employee owns a next step."
+  ],
+  "nodes": {
+    "open": {
+      "id": "open",
+      "label": "Opening the feedback",
+      "narration": "Devon joins the call with his camera on, coffee in hand, clearly in a good mood. \"Hey! Big week — Northwind follow-up on Thursday. What's up?\"",
+      "prompt": "How do you open the feedback conversation?",
+      "options": [
+        {
+          "id": "open-ask",
+          "text": "\"Before Thursday, I wanted to debrief the Northwind demo. How do you think it went?\"",
+          "approach": "inquiry",
+          "quality": "partial",
+          "ratings": {
+            "coaching": 3,
+            "activeListening": 2,
+            "clarity": 1,
+            "emotionalIntelligence": 2
+          },
+          "trust": 1,
+          "reaction": [
+            {
+              "speakerId": "devon",
+              "cue": "grins",
+              "text": "Honestly? Nailed it. They were nodding the whole time, and I got through the entire roadmap. I think they're close to signing."
+            }
+          ],
+          "feedback": {
+            "didWell": "Asking for self-assessment first respects Devon's expertise and reveals how he sees the situation — valuable information before you share yours.",
+            "improve": "With an overconfident performer, an open self-assessment can entrench his view. Be ready to narrow the question if his answer is far from reality.",
+            "why": "Self-assessment invites ownership and shows you the size of the perception gap. It works best when followed by targeted questions or specific observations.",
+            "perception": "Devon likely felt this was a friendly debrief — which is true — but has no signal yet that there is a problem.",
+            "alternative": "Signal the purpose while still inviting reflection: \"I want to debrief Northwind — there's some client feedback I want to share. First, how did the Q&A feel to you?\""
+          },
+          "next": "nailed-it"
+        },
+        {
+          "id": "open-sbi",
+          "text": "\"I want to share some feedback on the Northwind demo. In Q&A, when their security lead asked about data residency, you said 'we can cover that later' and moved on. She didn't speak again, and their VP has since emailed me with concerns.\"",
+          "approach": "directive",
+          "quality": "effective",
+          "ratings": {
+            "clarity": 3,
+            "accountability": 3,
+            "coaching": 1,
+            "emotionalIntelligence": 2
+          },
+          "trust": 0,
+          "reaction": [
+            {
+              "speakerId": "devon",
+              "cue": "frowns slightly",
+              "text": "She was getting into the weeds. Security questions always derail demos — I was keeping us on track."
+            }
+          ],
+          "feedback": {
+            "didWell": "This is textbook Situation–Behavior–Impact: a specific moment, an observable behavior, and a concrete consequence. There is nothing vague for Devon to dispute.",
+            "improve": "You might add an invitation at the end — \"What was your read of that moment?\" — so Devon moves from defending to reflecting.",
+            "why": "Specific, observable feedback is harder to dismiss and easier to act on. Linking it to client impact makes it matter to a results-driven performer.",
+            "perception": "Devon likely felt surprised and a little defensive. His justification shows he heard the message clearly — the next step is helping him explore it.",
+            "alternative": "Close with a question: \"…their VP has emailed with concerns. What was going through your mind in that moment?\""
+          },
+          "next": "justify"
+        },
+        {
+          "id": "open-sandwich",
+          "text": "\"Great energy in that demo! Really strong product knowledge. One small thing — maybe watch the timing. But overall, really good.\"",
+          "approach": "avoidant",
+          "quality": "limited",
+          "ratings": {
+            "clarity": 0,
+            "accountability": 0,
+            "coaching": 1,
+            "emotionalIntelligence": 1
+          },
+          "trust": 1,
+          "reaction": [
+            {
+              "speakerId": "devon",
+              "cue": "beaming",
+              "text": "Thanks! Yeah, I can trim the intro. I really think they're ready to sign."
+            }
+          ],
+          "feedback": {
+            "didWell": "Your praise is genuine — his product knowledge was excellent, and recognizing strengths matters.",
+            "improve": "The real issue — dismissing a key stakeholder — was not mentioned at all. \"Watch the timing\" and \"one small thing\" minimize a problem that may cost the deal.",
+            "why": "The \"feedback sandwich\" often buries the message. Confident performers in particular hear the praise and discard the rest.",
+            "perception": "Devon likely heard: \"Great job, minor tweak.\" He leaves more confident, not better prepared for Thursday.",
+            "alternative": "Keep the genuine praise, but be direct about the issue: \"Your product knowledge was excellent. There's one thing I need to flag that's affecting how the client sees the demo…\""
+          },
+          "next": "praised"
+        }
+      ]
+    },
+    "nailed-it": {
+      "id": "nailed-it",
+      "label": "Responding to an inflated self-assessment",
+      "narration": "Devon is confident, and he does not know about the VP's email. His self-assessment and the client's view are far apart.",
+      "prompt": "Devon thinks he \"nailed it.\" How do you close the gap?",
+      "options": [
+        {
+          "id": "nailed-question",
+          "text": "\"What did you notice about how their security lead responded during Q&A?\"",
+          "approach": "inquiry",
+          "quality": "effective",
+          "ratings": {
+            "coaching": 3,
+            "activeListening": 2,
+            "clarity": 2,
+            "emotionalIntelligence": 3
+          },
+          "trust": 1,
+          "reaction": [
+            {
+              "speakerId": "devon",
+              "cue": "pauses, thinking back",
+              "text": "She… went pretty quiet after her data residency question. I figured IT would follow up with her separately."
+            }
+          ],
+          "feedback": {
+            "didWell": "A targeted question guided Devon to the exact moment that mattered — and let him recall it himself.",
+            "improve": "If he had not noticed anything, you would need to share your observation directly. Have it ready.",
+            "why": "People accept insights they reach themselves more readily than ones they are given. Narrow, specific questions make discovery possible.",
+            "perception": "Devon likely felt respected — like a professional reviewing his own work — rather than criticized.",
+            "alternative": "Excellent coaching move. Follow up with: \"How do you think she felt when that was deferred?\""
+          },
+          "next": "reflect"
+        },
+        {
+          "id": "nailed-differ",
+          "text": "\"I see it differently. Their VP emailed me this morning with concerns, and I want to walk you through what I observed.\"",
+          "approach": "directive",
+          "quality": "partial",
+          "ratings": {
+            "clarity": 3,
+            "accountability": 3,
+            "coaching": 1,
+            "emotionalIntelligence": 1
+          },
+          "trust": -1,
+          "reaction": [
+            {
+              "speakerId": "devon",
+              "cue": "sits back, guarded",
+              "text": "Concerns? About what? That demo was one of my best."
+            }
+          ],
+          "feedback": {
+            "didWell": "You were honest and did not let an inaccurate self-assessment stand. Referencing the client's email grounds the feedback in evidence.",
+            "improve": "Leading with \"I see it differently\" sets up a debate of your view against his. A question first would reduce resistance.",
+            "why": "When an overconfident person's view is contradicted directly, they often defend it more strongly. Evidence is powerful, but sequence matters.",
+            "perception": "Devon likely felt blindsided — his manager and the client both disagree, and he does not yet know why.",
+            "alternative": "Bridge with a question: \"Glad parts of it felt strong. What was your read on the Q&A?\" — then introduce the client's email."
+          },
+          "next": "pushback"
+        },
+        {
+          "id": "nailed-agree",
+          "text": "\"Great, glad you felt good about it. Let's make sure Thursday goes just as well.\"",
+          "approach": "avoidant",
+          "quality": "limited",
+          "ratings": {
+            "clarity": 0,
+            "accountability": 0,
+            "coaching": 0,
+            "emotionalIntelligence": 1
+          },
+          "trust": 1,
+          "reaction": [
+            {
+              "speakerId": "devon",
+              "cue": "relaxed",
+              "text": "For sure. Same playbook. I'll add a couple of slides on the roadmap."
+            }
+          ],
+          "feedback": {
+            "didWell": "You kept the energy positive, and Devon feels supported going into Thursday.",
+            "improve": "You avoided the core issue entirely. The \"same playbook\" Devon is planning is the one the client objected to.",
+            "why": "Avoiding difficult feedback protects comfort in the moment but transfers the risk to the client relationship — and to Devon's career.",
+            "perception": "Devon likely felt validated. He has no idea that the deal is at risk.",
+            "alternative": "Acknowledge his view and add information: \"I'm glad it felt strong. I also got some client feedback that I want to share before Thursday.\""
+          },
+          "next": "missed"
+        }
+      ]
+    },
+    "justify": {
+      "id": "justify",
+      "label": "Responding to a justification",
+      "narration": "Devon has offered a reasonable-sounding explanation. Keeping demos on track is genuinely part of his job.",
+      "prompt": "Devon says he was \"keeping things on track.\" How do you respond?",
+      "options": [
+        {
+          "id": "just-curious",
+          "text": "\"Keeping a demo on track matters. Help me understand how you decide which questions to take and which to defer.\"",
+          "approach": "inquiry",
+          "quality": "effective",
+          "ratings": {
+            "coaching": 3,
+            "activeListening": 3,
+            "emotionalIntelligence": 3,
+            "clarity": 1
+          },
+          "trust": 1,
+          "reaction": [
+            {
+              "speakerId": "devon",
+              "cue": "thinks",
+              "text": "I usually defer anything technical that isn't on the agenda… although, I guess for them, security probably is the agenda. They're moving logistics data across borders."
+            }
+          ],
+          "feedback": {
+            "didWell": "You validated the legitimate part of his reasoning and then asked about his decision process — which led him to his own insight.",
+            "improve": "Nothing major. Be careful not to let curiosity drift from the impact; bring the VP's concern back in when the moment is right.",
+            "why": "Exploring someone's reasoning separates intent from impact. Once Devon examined his own rule, he saw its flaw.",
+            "perception": "Devon likely felt his judgment was being taken seriously, which made it safe to question it.",
+            "alternative": "Model response. A useful follow-up: \"What do you think that deferral signaled to their security lead?\""
+          },
+          "next": "reflect"
+        },
+        {
+          "id": "just-impact",
+          "text": "\"Maybe, but the result is that their VP has concerns, and that's what I care about.\"",
+          "approach": "directive",
+          "quality": "partial",
+          "ratings": {
+            "clarity": 3,
+            "accountability": 3,
+            "coaching": 0,
+            "activeListening": 0,
+            "emotionalIntelligence": 1
+          },
+          "trust": -1,
+          "reaction": [
+            {
+              "speakerId": "devon",
+              "cue": "jaw tightens",
+              "text": "So one email outweighs everything else that went well?"
+            }
+          ],
+          "feedback": {
+            "didWell": "You kept the focus on impact, which is ultimately what matters to the client and the business.",
+            "improve": "Dismissing his reasoning with \"maybe, but\" signals that his perspective is irrelevant, which pushes him to defend it harder.",
+            "why": "People can only change a decision rule they have examined. Skipping his reasoning leaves the underlying habit intact.",
+            "perception": "Devon likely felt unheard and felt that his overall performance was being reduced to one email.",
+            "alternative": "Acknowledge, then connect: \"Keeping on track matters. The challenge is that, for this client, security was the priority — and the VP noticed.\""
+          },
+          "next": "pushback"
+        },
+        {
+          "id": "just-retreat",
+          "text": "\"Okay, fair point. Just keep it in mind for next time.\"",
+          "approach": "avoidant",
+          "quality": "limited",
+          "ratings": {
+            "clarity": 1,
+            "accountability": 0,
+            "coaching": 0,
+            "activeListening": 1
+          },
+          "trust": 1,
+          "reaction": [
+            {
+              "speakerId": "devon",
+              "cue": "nods quickly",
+              "text": "Will do. Anything else? I've got a call in five."
+            }
+          ],
+          "feedback": {
+            "didWell": "You avoided an argument and kept the relationship comfortable.",
+            "improve": "You retreated from accurate, important feedback as soon as he pushed back. \"Keep it in mind\" gives him nothing to act on.",
+            "why": "When managers back down from feedback under mild resistance, employees learn that pushback works — making future feedback harder.",
+            "perception": "Devon likely concluded that the issue was minor and that his explanation settled it.",
+            "alternative": "Stay with it: \"I understand the intent. I still want to talk about the impact, because Northwind has raised it directly.\""
+          },
+          "next": "missed"
+        }
+      ]
+    },
+    "praised": {
+      "id": "praised",
+      "label": "Correcting a diluted message",
+      "narration": "Devon is reaching to end the call. He has heard the praise; the client's concern has not come up.",
+      "prompt": "Devon thinks the feedback was \"trim the intro.\" What do you do before he leaves?",
+      "options": [
+        {
+          "id": "praised-correct",
+          "text": "\"Before you go — I want to be more direct than I just was. There's something important about the Q&A I glossed over, and the client has raised it.\"",
+          "approach": "repair",
+          "quality": "effective",
+          "ratings": {
+            "clarity": 3,
+            "accountability": 3,
+            "emotionalIntelligence": 3,
+            "coaching": 2
+          },
+          "trust": 1,
+          "reaction": [
+            {
+              "speakerId": "devon",
+              "cue": "pausing, hand still on the mouse",
+              "text": "Oh. Okay — what's up? Was it the security question? I wondered about that afterward."
+            }
+          ],
+          "feedback": {
+            "didWell": "You caught your own diluted message and corrected it in the moment. Owning the shift makes the real point land more clearly, not less.",
+            "improve": "Next time, lead with the core message so you do not need a correction. The praise was valid — it just should not have replaced the point.",
+            "why": "Self-correction models candor and resets the purpose of the conversation. Delaying the real message even by a day would have let the client relationship deteriorate further.",
+            "perception": "Devon likely felt surprised but respected. Because you flagged it yourself, he is curious rather than defensive — and he had already half-noticed the issue.",
+            "alternative": "Open with the point next time: \"Your product knowledge was excellent. One moment in Q&A concerns me, and the client has raised it too.\""
+          },
+          "next": "reflect"
+        },
+        {
+          "id": "praised-email",
+          "text": "\"Actually, about the timing — their VP emailed me. They felt their security questions were brushed off.\"",
+          "approach": "directive",
+          "quality": "partial",
+          "ratings": {
+            "clarity": 3,
+            "accountability": 2,
+            "emotionalIntelligence": 1,
+            "coaching": 0
+          },
+          "trust": -1,
+          "reaction": [
+            {
+              "speakerId": "devon",
+              "cue": "brow furrowing",
+              "text": "Wait — so it wasn't just timing? Why didn't you lead with that?"
+            }
+          ],
+          "feedback": {
+            "didWell": "You brought the real issue to the surface and anchored it in the client's own words.",
+            "improve": "Attaching it to \"about the timing\" makes the shift feel like a reveal. Devon now questions why the praise came first.",
+            "why": "When a serious message arrives after reassurance, people often feel misled, which redirects their energy into questioning the messenger.",
+            "perception": "Devon likely felt caught off guard and a little manipulated. His challenge — \"Why didn't you lead with that?\" — is fair.",
+            "alternative": "Name the switch honestly: \"I undersold something just now. The real issue is how the security question was handled — their VP has raised it.\""
+          },
+          "next": "pushback"
+        },
+        {
+          "id": "praised-close",
+          "text": "\"Great. Let me know if you need anything for the follow-up.\"",
+          "approach": "avoidant",
+          "quality": "limited",
+          "ratings": {
+            "clarity": 0,
+            "accountability": 0,
+            "coaching": 0,
+            "emotionalIntelligence": 1
+          },
+          "trust": 1,
+          "reaction": [
+            {
+              "speakerId": "devon",
+              "cue": "already unmuting for his next call",
+              "text": "Will do — thanks!"
+            }
+          ],
+          "feedback": {
+            "didWell": "You offered support for Thursday, which matters.",
+            "improve": "The client's concern was never shared. Devon goes into the follow-up with the same approach that caused the problem.",
+            "why": "Feedback avoided today is usually delivered later in a worse form — by the client, a director, or a lost deal.",
+            "perception": "Devon likely feels well supported and fully prepared — neither of which is true.",
+            "alternative": "Stop the call for two more minutes: \"Before you go — there's one more thing I need to be clear about.\""
+          },
+          "next": "missed"
+        }
+      ]
+    },
+    "missed": {
+      "id": "missed",
+      "label": "Handling an escalation",
+      "narration": "Devon heads off upbeat. Two days later, Northwind's VP emails again — this time copying your director — asking whether a different presenter could lead Thursday's session.",
+      "prompt": "The issue has escalated. You catch Devon before his next meeting. What do you say?",
+      "options": [
+        {
+          "id": "missed-own",
+          "text": "\"I owe you an apology — I wasn't clear on Monday. Northwind has asked for a different presenter. Let's look at what happened and work out how to recover the account together.\"",
+          "approach": "repair",
+          "quality": "effective",
+          "ratings": {
+            "accountability": 3,
+            "clarity": 3,
+            "emotionalIntelligence": 3,
+            "problemSolving": 3,
+            "coaching": 2
+          },
+          "trust": 1,
+          "reaction": [
+            {
+              "speakerId": "devon",
+              "cue": "stunned, then quiet",
+              "text": "They asked for someone else? Wow. Okay… what did they say exactly?"
+            }
+          ],
+          "feedback": {
+            "didWell": "You took ownership of your own unclear feedback — modeling the accountability you want from Devon — and moved straight to recovery.",
+            "improve": "The lesson is about timing: this conversation should have happened on Monday, before the client escalated.",
+            "why": "Owning your contribution reduces defensiveness and keeps the focus on solving the problem together.",
+            "perception": "Devon likely felt shocked but supported. Your honesty makes it easier for him to accept the hard news.",
+            "alternative": "This is the right move now. Next time, deliver specific feedback the first time — clarity is a kindness."
+          },
+          "next": null,
+          "outcome": "late-recovery"
+        },
+        {
+          "id": "missed-reassign",
+          "text": "\"Northwind has asked for someone else to present. I'll have Aisha cover Thursday.\"",
+          "approach": "directive",
+          "quality": "partial",
+          "ratings": {
+            "accountability": 2,
+            "clarity": 3,
+            "problemSolving": 2,
+            "coaching": 0,
+            "emotionalIntelligence": 0
+          },
+          "trust": -2,
+          "reaction": [
+            {
+              "speakerId": "devon",
+              "cue": "stunned",
+              "text": "Wait — what? Nobody told me anything was wrong. That's my account."
+            }
+          ],
+          "feedback": {
+            "didWell": "You acted quickly to protect the client relationship, which is a legitimate priority.",
+            "improve": "Devon is hearing about a serious problem for the first time as a done deal, with no explanation and no chance to learn from it.",
+            "why": "Removing someone from an account without feedback treats a development opportunity as a staffing decision. It damages trust and teaches nothing.",
+            "perception": "Devon likely feels blindsided and humiliated — and believes, with some justification, that he was never told.",
+            "alternative": "Share the reason, own your part, and involve him: \"They've asked for someone else. I should have been clearer on Monday. Let's talk about what happened and what role you can play in the recovery.\""
+          },
+          "next": null,
+          "outcome": "strained-reassigned"
+        },
+        {
+          "id": "missed-forward",
+          "text": "You forward him the VP's email with a note that says, \"FYI — see below. Let's discuss.\"",
+          "approach": "avoidant",
+          "quality": "limited",
+          "ratings": {
+            "accountability": 1,
+            "clarity": 1,
+            "emotionalIntelligence": 0,
+            "coaching": 0,
+            "problemSolving": 0
+          },
+          "trust": -2,
+          "reaction": [
+            {
+              "speakerId": "devon",
+              "cue": "messages you ten minutes later",
+              "text": "Just saw this. Honestly kind of blindsided. Why am I hearing about this from a forwarded email?"
+            }
+          ],
+          "feedback": {
+            "didWell": "You shared the client's words transparently rather than filtering them.",
+            "improve": "Difficult news delivered by forwarded email leaves the employee to interpret it alone, with no context or support.",
+            "why": "Sensitive feedback needs a conversation. Written forwards strip out tone and intent, and they invite the worst interpretation.",
+            "perception": "Devon likely feels embarrassed and frustrated — at the client, and at you for not telling him directly.",
+            "alternative": "Talk first, then share the email: \"Do you have ten minutes? I need to walk you through some client feedback I should have raised on Monday.\""
+          },
+          "next": null,
+          "outcome": "strained"
+        }
+      ]
+    },
+    "reflect": {
+      "id": "reflect",
+      "label": "Moving from insight to commitment",
+      "narration": "Devon goes quiet for a moment. \"I think I did cut her off. Twice, actually. I just assumed the security review would happen later with their IT team.\"",
+      "prompt": "Devon is starting to see the impact. How do you move toward a commitment for Thursday?",
+      "options": [
+        {
+          "id": "ref-coach",
+          "text": "\"That's a really honest read. What would you do differently in Thursday's session?\"",
+          "approach": "inquiry",
+          "quality": "effective",
+          "ratings": {
+            "coaching": 3,
+            "problemSolving": 3,
+            "accountability": 3,
+            "activeListening": 2
+          },
+          "trust": 1,
+          "reaction": [
+            {
+              "speakerId": "devon",
+              "cue": "leaning in",
+              "text": "Open with data residency — maybe bring our security architect in for the first fifteen minutes. And I'll ask their security lead what she needs to see before we demo anything else."
+            }
+          ],
+          "feedback": {
+            "didWell": "You affirmed his self-awareness and handed ownership of the solution to him. His plan is stronger than one you could have dictated.",
+            "improve": "Close the loop: agree on how you will both know Thursday went well, and offer to help him prepare.",
+            "why": "Employee-generated solutions build commitment and capability. Devon will apply this approach to future demos, not just this one.",
+            "perception": "Devon likely feels trusted and energized — the conversation turned a mistake into a strategy for winning the account.",
+            "alternative": "Model response. Add: \"Great plan. Want to do a 15-minute run-through on Wednesday?\""
+          },
+          "next": null,
+          "outcome": "breakthrough"
+        },
+        {
+          "id": "ref-tell",
+          "text": "\"Here's what I want you to do: open Thursday with data residency, and pause for questions every ten minutes.\"",
+          "approach": "directive",
+          "quality": "partial",
+          "ratings": {
+            "coaching": 1,
+            "problemSolving": 2,
+            "clarity": 3,
+            "accountability": 2
+          },
+          "trust": 0,
+          "reaction": [
+            {
+              "speakerId": "devon",
+              "cue": "nods",
+              "text": "Okay, I can do that."
+            }
+          ],
+          "feedback": {
+            "didWell": "Your direction is clear, specific, and relevant to the client's concern.",
+            "improve": "Devon was on the verge of solving this himself. Dictating the solution reduces his ownership and his learning.",
+            "why": "When someone has reached insight, coaching questions convert it into commitment. Directives produce compliance with your plan rather than ownership of his.",
+            "perception": "Devon likely accepts the plan, but it feels like your fix for his mistake rather than his own strategy.",
+            "alternative": "Ask first, then add: \"What would you do differently?\" — and suggest pausing for questions only if he does not think of it himself."
+          },
+          "next": null,
+          "outcome": "productive"
+        },
+        {
+          "id": "ref-vague",
+          "text": "\"Good, I'm glad you see it. I'm sure you'll handle it on Thursday.\"",
+          "approach": "avoidant",
+          "quality": "limited",
+          "ratings": {
+            "coaching": 1,
+            "problemSolving": 0,
+            "clarity": 1,
+            "accountability": 1
+          },
+          "trust": 1,
+          "reaction": [
+            {
+              "speakerId": "devon",
+              "cue": "nods",
+              "text": "Yeah, definitely. I'll sort it out."
+            }
+          ],
+          "feedback": {
+            "didWell": "You expressed confidence in Devon, which matters to his motivation.",
+            "improve": "Insight without a plan rarely changes behavior. Under the pressure of Thursday, he is likely to fall back on old habits.",
+            "why": "Feedback is complete when it produces a specific, owned next step. Confidence is not a substitute for clarity.",
+            "perception": "Devon likely feels the conversation went well — but has not translated his realization into anything concrete.",
+            "alternative": "Ask for the plan: \"I'm confident too. What specifically will you do differently?\""
+          },
+          "next": null,
+          "outcome": "partial"
+        }
+      ]
+    },
+    "pushback": {
+      "id": "pushback",
+      "label": "Holding steady under pushback",
+      "narration": "Devon leans back from his camera. \"With respect, I've closed more than anyone on the team this quarter. One unhappy email doesn't mean the demo went badly.\"",
+      "prompt": "Devon is citing his results. How do you keep the feedback on track?",
+      "options": [
+        {
+          "id": "push-connect",
+          "text": "\"Your numbers are excellent — that's exactly why I'm raising this. Northwind is a big account, and I want you to win it. The specific moment I'm concerned about is when the security lead's question was deferred.\"",
+          "approach": "collaborative",
+          "quality": "effective",
+          "ratings": {
+            "clarity": 3,
+            "accountability": 3,
+            "emotionalIntelligence": 3,
+            "coaching": 2,
+            "conflictResolution": 2
+          },
+          "trust": 1,
+          "reaction": [
+            {
+              "speakerId": "devon",
+              "cue": "slowly",
+              "text": "…Okay. Yeah. I did brush her off. I figured IT would handle it. What would you want me to do Thursday?"
+            }
+          ],
+          "feedback": {
+            "didWell": "You affirmed his achievements, connected the feedback to his own goals, and returned to a specific behavior — without escalating.",
+            "improve": "When he asks what you want him to do, turn the question back to him so he owns the plan.",
+            "why": "Aligning feedback with someone's motivations turns it from a threat into a tool. Specificity prevents the conversation from becoming a debate.",
+            "perception": "Devon likely felt you were on his side, which made it possible to admit what happened.",
+            "alternative": "Strong response. Next: \"What do you think would reassure their security lead on Thursday?\""
+          },
+          "next": null,
+          "outcome": "productive"
+        },
+        {
+          "id": "push-firm",
+          "text": "\"This isn't about your numbers. It's about how the client felt. I need you to take this seriously.\"",
+          "approach": "directive",
+          "quality": "partial",
+          "ratings": {
+            "clarity": 2,
+            "accountability": 3,
+            "emotionalIntelligence": 1,
+            "coaching": 0,
+            "conflictResolution": 1
+          },
+          "trust": -1,
+          "reaction": [
+            {
+              "speakerId": "devon",
+              "cue": "flatly",
+              "text": "I am taking it seriously. Fine. I'll address security on Thursday."
+            }
+          ],
+          "feedback": {
+            "didWell": "You held the line and did not let his results excuse the impact on the client.",
+            "improve": "\"Take this seriously\" implies he is not, which shifts the conversation from the behavior to his attitude.",
+            "why": "Firmness works best when it stays anchored to specifics. Commentary on attitude invites defensiveness without adding information.",
+            "perception": "Devon likely feels lectured. He will comply on Thursday, but has not reflected on what happened.",
+            "alternative": "Be firm and specific: \"Your results are strong. And in this demo, deferring the security question had a real cost. Let's talk about that moment.\""
+          },
+          "next": null,
+          "outcome": "partial"
+        },
+        {
+          "id": "push-escalate",
+          "text": "\"If you're not open to feedback, that's a bigger problem.\"",
+          "approach": "judgmental",
+          "quality": "limited",
+          "ratings": {
+            "clarity": 1,
+            "accountability": 1,
+            "emotionalIntelligence": 0,
+            "coaching": 0,
+            "conflictResolution": 0
+          },
+          "trust": -2,
+          "reaction": [
+            {
+              "speakerId": "devon",
+              "cue": "stiffly",
+              "text": "I'm open to feedback. I just don't agree with this one. Can we pick this up later? I have a call."
+            }
+          ],
+          "feedback": {
+            "didWell": "You were candid about something that concerns you — his reaction to feedback.",
+            "improve": "This shifts from a specific behavior to a judgment about his character, escalating the conflict and abandoning the original issue.",
+            "why": "Labels like \"not open to feedback\" are almost always rejected and tend to end productive dialogue.",
+            "perception": "Devon likely feels attacked and is now focused on defending his reputation rather than on Northwind.",
+            "alternative": "Return to the specific behavior: \"Let's set the numbers aside for a moment and look at that one Q&A exchange together.\""
+          },
+          "next": null,
+          "outcome": "strained-debate"
+        }
+      ]
+    }
+  },
+  "outcomes": {
+    "breakthrough": {
+      "id": "breakthrough",
+      "tier": "breakthrough",
+      "title": "Devon owns the turnaround",
+      "narrative": "Devon opens Thursday's session with your security architect and asks Northwind's security lead what she needs to see. The VP replies afterward: \"This is exactly what we needed.\" Devon later uses the same approach with two other prospects.",
+      "employeePerspective": "\"I didn't love hearing it, but I'm glad I did. I've changed how I run every Q&A now.\"",
+      "lookingAhead": "Recognize the behavior change explicitly after Thursday — reinforcement makes new habits stick."
+    },
+    "productive": {
+      "id": "productive",
+      "tier": "productive",
+      "title": "Clear plan, shared ownership",
+      "narrative": "Devon addresses security up front on Thursday, and the session goes well. He follows the plan closely, though he still sees the change mostly as a fix for this client rather than a broader lesson.",
+      "employeePerspective": "\"Fair enough — security was clearly their priority. I'll keep it in mind for regulated clients.\"",
+      "lookingAhead": "In your next 1:1, ask him what he learned that applies beyond Northwind, to help him generalize the insight."
+    },
+    "late-recovery": {
+      "id": "late-recovery",
+      "tier": "partial",
+      "title": "A late, honest recovery",
+      "narrative": "Your director is unhappy, but your candor with Devon allows the two of you to rebuild Northwind's confidence. Devon co-presents on Thursday with a senior colleague. The account is saved — narrowly.",
+      "employeePerspective": "\"I wish I'd known on Monday. But I respect that my manager owned it.\"",
+      "lookingAhead": "Reflect on what stopped you from being direct the first time. Clear feedback early prevents escalation later."
+    },
+    "partial": {
+      "id": "partial",
+      "tier": "partial",
+      "title": "Compliance without conviction",
+      "narrative": "Devon mentions security on Thursday, but only briefly; the client stays lukewarm. He has not fully understood the impact, and you notice the same pattern in a different demo two weeks later.",
+      "employeePerspective": "\"I made the change my manager asked for. Not sure it was a big deal.\"",
+      "lookingAhead": "Feedback did not translate into insight. Next time, invite reflection with targeted questions and secure a specific commitment."
+    },
+    "strained-reassigned": {
+      "id": "strained-reassigned",
+      "tier": "strained",
+      "title": "Account protected, development lost",
+      "narrative": "Aisha presents on Thursday and stabilizes the deal. Devon feels publicly sidelined and confides to a peer that he was \"thrown under the bus.\" His engagement in team forums drops noticeably.",
+      "employeePerspective": "\"Nobody told me there was a problem until it was too late to fix it.\"",
+      "lookingAhead": "Repair the relationship: own your part, share the full feedback, and discuss how he can rebuild with Northwind."
+    },
+    "strained-debate": {
+      "id": "strained-debate",
+      "tier": "strained",
+      "title": "The feedback became a fight",
+      "narrative": "The conversation ends early and unresolved. Devon goes into Thursday with no change in approach, and Northwind's security team raises formal objections. Devon tells a teammate that his manager \"doesn't respect results.\"",
+      "employeePerspective": "\"It felt like a personal attack. I have the best numbers on the team.\"",
+      "lookingAhead": "Return to specific behavior and its impact. Acknowledge his results so they stop being the battleground."
+    },
+    "strained": {
+      "id": "strained",
+      "tier": "strained",
+      "title": "Delivered, but not discussed",
+      "narrative": "Devon reads the forwarded email alone and feels ambushed. He replies defensively to the VP before you can talk, making the situation worse. You spend the rest of the week on damage control.",
+      "employeePerspective": "\"I found out from a forwarded email. That says a lot.\"",
+      "lookingAhead": "Difficult feedback needs a conversation, not a forward. Meet in person and own your lack of clarity from earlier in the week."
+    }
+  }
+}
