@@ -1,8 +1,35 @@
 # LeadWell: The Difficult Conversations Lab
 
-A branching leadership conversation simulator. Learners talk with realistic, fictional employees, see how each choice changes the employee's response and the rapport between them, get coaching after every decision, and finish with a competency-based results report and a reflection activity.
+An interactive, self-paced leadership course for practicing the conversations most managers avoid. Each module pairs a short lesson and hands-on activity with a branching conversation simulation: learners talk with a realistic, fictional employee, see how each choice changes the employee's response and the rapport between them, get coaching after every decision, and finish with a competency-based results report and a reflection commitment.
+
+**[Try the live demo](https://claude.ai/artifact/GEezhnKdP8y5gvVRwSAWQ1)**. No sign-up needed. Progress is saved in your browser only. On the dashboard, choose **Load sample progress** to explore a course that is partly done.
 
 > All people, organizations, scenarios, learners, and results in this demonstration are fictional.
+
+![Course home with progress, learning outcomes, and the four-step module structure](docs/screenshots/dashboard.png)
+
+## Highlights
+
+- **Course structure:** 3 modules, each with four tracked steps: Lesson → Practice → Assessment → Reflection.
+- **Interactive lessons:** a different activity type per module.
+  - Sorting conversation openers.
+  - Building Situation–Behavior–Impact feedback from parts.
+  - Matching positions to underlying interests.
+- **Branching simulations:** each path has at least 3 decision points, and every choice moves a live rapport meter.
+- **Five-part coaching** after every practice decision: what you did well, what to improve, why it matters, how the employee likely heard it, and a more effective alternative.
+- **Competency scoring** across eight leadership competencies, with proficiency bands always shown as text.
+- **Transfer to work:** each module ends with a workplace commitment saved to a reflection journal and collected in a course summary.
+- **Content as data:** scenarios, personas, and lessons are JSON, checked by automated validation tests.
+
+| Coaching feedback after a practice decision | Interactive lesson: build SBI feedback |
+|---|---|
+| ![Practice conversation showing the five-part coaching feedback and rapport meter](docs/screenshots/simulator.png) | ![Lesson page with the Situation–Behavior–Impact model and a build-it-from-parts activity](docs/screenshots/lesson.png) |
+| **Module overview with step progress** | **Assessment results** |
+| ![Module page listing the four steps with their completion status](docs/screenshots/module.png) | ![Results page with outcome, overall score, and competency breakdown](docs/screenshots/results.png) |
+
+## Built with
+
+React 18, TypeScript, Vite, Tailwind CSS, Recharts, Lucide icons, Vitest. There's also an optional Supabase adapter for saving progress to a database.
 
 ## Quick start
 
@@ -21,7 +48,7 @@ The build is a static site with hash routing and relative asset paths, so `dist/
 npm run build:artifact && python3 scripts/make-artifact.py   # → dist-artifact/leadwell.html
 ```
 
-This variant (`VITE_TARGET=artifact`) inlines all CSS and JS into one page, keeps routes in memory instead of the URL hash, hides Print buttons, and turns file downloads (development summary, scenario JSON) into copy-to-clipboard.
+This variant (`VITE_TARGET=artifact`) inlines all CSS and JS into one ASCII-only page, keeps routes in memory instead of the URL hash, and hides the Print button. The live demo above uses this build.
 
 ## What's included
 
@@ -44,8 +71,9 @@ LeadWell is presented as a self-paced interactive course. Each available scenari
 - **Practice vs. formative vs. summative.** Practice mode gives coaching after every decision and lets the learner rewind. Assessment mode holds all feedback until the end and records a score. The competency profile uses assessment evidence and labels practice-only scores as estimates.
 - **Nuanced options.** Each decision point offers an *effective*, a *partially effective*, and a *missed-opportunity* response. Partial options are reasonable instincts, such as directness without curiosity or empathy without accountability.
 - **Five-part coaching** for every option: what you did well, what to improve, why it matters, how the employee likely heard it, and a more effective alternative.
-- **Transfer.** Each simulation ends with a commitment to one observable behavior. Commitments are saved to the journal and included in the development summary.
-- **Spaced reinforcement.** The dashboard shows a weekly refresher for the weakest competency and flags scenarios for review 7 days after completion.
+- **Lesson before simulation.** Each module starts with a short concept lesson and an interactive activity, so learners try the model before using it in a conversation. Lessons record how many answers were right on the first try.
+- **Transfer.** Each module ends with a commitment to one observable behavior. Commitments are saved to the journal and collected on the course summary.
+- **Reinforcement.** The dashboard shows a weekly practice tip for the learner's weakest competency.
 
 ### Scoring
 
@@ -75,6 +103,8 @@ src/
   state/AppContext.tsx         app state, persistence, toasts
   pages/, components/          UI
 supabase/schema.sql            tables, views, and Row Level Security policies
+scripts/make-artifact.py       packs the artifact build into a single HTML file
+docs/screenshots/              images used in this README
 ```
 
 ### Adding a scenario
@@ -96,7 +126,7 @@ Demo mode needs no backend and stores progress in the browser's `localStorage`. 
 2. Copy `.env.example` to `.env` and set `VITE_SUPABASE_URL` and `VITE_SUPABASE_ANON_KEY`.
 3. After sign-in, pass `new SupabaseRepository(getSupabaseClient()!, user.id)` to `<AppProvider repository={…}>`.
 
-The Row Level Security policies limit each learner to their own attempts and reflections. Administrators can read attempts and scores, but no policy gives them access to reflection text. They only get the `admin_reflection_counts` view.
+The Row Level Security policies limit each learner to their own attempts, lesson results, and reflections. The schema also includes optional administrator policies for reporting on attempts and scores. No policy gives administrators access to reflection text; they only get the `admin_reflection_counts` view. The demo has no admin interface.
 
 ## Accessibility
 
